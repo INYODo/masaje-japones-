@@ -8,7 +8,9 @@
     <meta name="description" content="Formación profesional en Anma y Shiatsu Namikoshi con Gastón Burgos. Más de 20 años de experiencia en Lanús.">
     <meta property="og:title" content="Maestría en Masaje Japonés - Gastón Burgos">
     <meta property="og:description" content="Certificación profesional en Lanús Oeste. Transforma tu futuro.">
-    <meta property="og:image" content="https://i.ibb.co/rRdYV7TN/Conoce-al-maestro.png"> <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta property="og:image" content="https://i.ibb.co/rRdYV7TN/Conoce-al-maestro.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -16,6 +18,7 @@
         body { font-family: 'Lato', sans-serif; background-color: #fcfbf9; }
         .zen-gradient { background: radial-gradient(circle at center, #FCFBF9 0%, #F5F1E8 100%); }
         .testimonial-card { border-left: 3px solid #d4c5a9; font-style: italic; }
+        details summary::-webkit-details-marker { display:none; }
     </style>
 </head>
 <body class="text-stone-800 antialiased">
@@ -24,8 +27,8 @@
         <h1 class="text-4xl md:text-7xl mb-4 text-stone-900 leading-tight tracking-tight">Maestría en<br>Masaje Japonés</h1>
         <p class="text-lg md:text-2xl text-stone-600 uppercase tracking-widest mb-8">Certificación en Anma y Shiatsu Namikoshi</p>
         <div class="w-24 h-px bg-stone-400 mb-8"></div>
-        <p class="text-xl italic text-stone-500 mb-12 max-w-2xl">"Transforma la salud, el bienestar y tu propósito de vida"</p>
-        <p class="text-2xl font-semibold mb-12">Gastón Burgos</p>
+        <p class="text-xl italic text-stone-500 mb-12 max-w-2xl px-4 text-balance">"Transforma la salud, el bienestar y tu propósito de vida"</p>
+        <p class="text-2xl font-semibold mb-12 italic">Gastón Burgos</p>
         <a href="#contacto" class="bg-stone-800 text-white px-10 py-4 uppercase tracking-widest text-xs hover:bg-stone-700 transition shadow-2xl">Asegurar mi Plaza</a>
     </header>
 
@@ -38,9 +41,9 @@
                 <h2 class="text-4xl mb-6 italic">Gastón Burgos</h2>
                 <h3 class="text-sm text-stone-400 mb-8 uppercase tracking-widest font-bold">Nuestra Trayectoria</h3>
                 <ul class="space-y-6">
-                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p><strong>+20 Años:</strong> Fusión de Artes Marciales (2002) y conocimiento terapéutico (2005).</p></li>
-                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p><strong>Certificación:</strong> Shiatsuterapeuta Namikoshi con aval de Tokio.</p></li>
-                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p><strong>Formador:</strong> Más de 100 alumnos graduados en técnicas Daiki y Shiatsu.</p></li>
+                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p class="text-stone-600"><strong>+20 Años:</strong> Fusión de Artes Marciales (2002) y conocimiento terapéutico (2005).</p></li>
+                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p class="text-stone-600"><strong>Certificación:</strong> Shiatsuterapeuta Namikoshi con aval de Tokio.</p></li>
+                    <li class="flex gap-4"><span class="text-stone-300 text-2xl">•</span><p class="text-stone-600"><strong>Formador:</strong> Más de 100 alumnos graduados en técnicas Daiki y Shiatsu.</p></li>
                 </ul>
             </div>
         </div>
@@ -49,71 +52,94 @@
     <section class="py-24 bg-stone-50 border-y border-stone-200 px-6 text-center">
         <h2 class="text-3xl mb-16 italic text-stone-400 font-light tracking-widest uppercase">Palabras de Alumnos</h2>
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
-            <div class="testimonial-card p-6 bg-white shadow-sm text-left">
-                <p class="mb-4">"La técnica de Gastón es impecable. Logré transformar mi salida laboral en pocos meses."</p>
-                <p class="font-bold text-xs uppercase">— Alumno Graduado</p>
+            <div class="testimonial-card p-8 bg-white shadow-sm text-left">
+                <p class="mb-4 text-stone-600 italic">"La técnica de Gastón es impecable. Logré transformar mi salida laboral en pocos meses gracias a la seriedad de la formación."</p>
+                <p class="font-bold text-[10px] uppercase tracking-widest text-stone-400">— Alumno Graduado</p>
             </div>
-            <div class="testimonial-card p-6 bg-white shadow-sm text-left">
-                <p class="mb-4">"Un antes y un después en mi carrera profesional. La formación es profunda y seria."</p>
-                <p class="font-bold text-xs uppercase">— Alumna Certificada</p>
+            <div class="testimonial-card p-8 bg-white shadow-sm text-left">
+                <p class="mb-4 text-stone-600 italic">"Un antes y un después en mi carrera profesional. La profundidad con la que se enseña el Shiatsu Namikoshi es única."</p>
+                <p class="font-bold text-[10px] uppercase tracking-widest text-stone-400">— Alumna Certificada</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-center text-4xl mb-16 italic">Estructura del Programa</h2>
+    <section class="py-24 px-6 max-w-6xl mx-auto text-center md:text-left">
+        <h2 class="text-center text-4xl mb-16 italic text-stone-800">Estructura del Programa</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-10 border border-stone-200">
-                <h4 class="font-bold text-lg mb-2 uppercase">MOD 1</h4>
-                <p class="text-xs text-stone-400 mb-4 tracking-widest">18 Horas</p>
-                <p class="text-sm text-stone-600 italic">Silla & Zafu: Quick Fix.</p>
+            <div class="bg-white p-10 border border-stone-200 group hover:border-stone-400 transition">
+                <h4 class="font-bold text-lg mb-2 uppercase text-stone-800">MOD 1</h4>
+                <p class="text-xs text-stone-400 mb-4 tracking-widest">18 Horas Certificadas</p>
+                <p class="text-sm text-stone-500 italic font-light">Silla & Zafu: Quick Fix.</p>
             </div>
-            <div class="bg-white p-10 border border-stone-200">
-                <h4 class="font-bold text-lg mb-2 uppercase text-stone-400 opacity-60">MOD 2</h4>
-                <p class="text-xs text-stone-300 mb-4 tracking-widest">18 Horas</p>
-                <p class="text-sm text-stone-500 italic">Posición Lateral.</p>
+            <div class="bg-white p-10 border border-stone-200 group hover:border-stone-400 transition">
+                <h4 class="font-bold text-lg mb-2 uppercase text-stone-800 opacity-60">MOD 2</h4>
+                <p class="text-xs text-stone-300 mb-4 tracking-widest">18 Horas Certificadas</p>
+                <p class="text-sm text-stone-500 italic font-light">Posición Lateral.</p>
             </div>
-            <div class="bg-white p-10 border border-stone-200">
-                <h4 class="font-bold text-lg mb-2 uppercase text-stone-400 opacity-60">MOD 3</h4>
-                <p class="text-xs text-stone-300 mb-4 tracking-widest">18 Horas</p>
-                <p class="text-sm text-stone-500 italic">Posición Prono.</p>
+            <div class="bg-white p-10 border border-stone-200 group hover:border-stone-400 transition">
+                <h4 class="font-bold text-lg mb-2 uppercase text-stone-800 opacity-60">MOD 3</h4>
+                <p class="text-xs text-stone-300 mb-4 tracking-widest">18 Horas Certificadas</p>
+                <p class="text-sm text-stone-500 italic font-light">Posición Prono.</p>
             </div>
-            <div class="bg-[#F5F1E8] p-10 border-2 border-stone-800 shadow-xl">
-                <h4 class="font-bold text-lg mb-2 uppercase">MOD 4</h4>
-                <p class="text-xs text-stone-600 mb-4 tracking-widest font-bold italic">32 Horas</p>
-                <p class="text-sm text-stone-700 italic">Posición Supino & Hara.</p>
+            <div class="bg-[#F5F1E8] p-10 border-2 border-stone-800 shadow-xl relative">
+                <span class="absolute -top-3 right-4 bg-stone-800 text-white text-[10px] px-2 py-1 uppercase tracking-tighter">Intensivo</span>
+                <h4 class="font-bold text-lg mb-2 uppercase text-stone-900">MOD 4</h4>
+                <p class="text-xs text-stone-600 mb-4 tracking-widest font-bold italic underline">32 Horas Certificadas</p>
+                <p class="text-sm text-stone-700 italic font-light">Posición Supino & Hara.</p>
             </div>
         </div>
     </section>
 
-    <section class="h-[400px] w-full border-y border-stone-200 grayscale contrast-125">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.167825700516!2d-58.402633!3d-34.701322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcccd9659b9e67%3A0x67a998157743d528!2sCarlos%20Tejedor%20335%2C%20B1824%20Lan%C3%BAs%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1710000000000!5m2!1ses!2sar" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+    <section class="py-24 px-6 bg-stone-50 border-y border-stone-200">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl text-center mb-16 italic">Preguntas Frecuentes</h2>
+            <div class="space-y-4">
+                <details class="group bg-white border border-stone-200 p-6 transition-all duration-300 open:shadow-lg">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        ¿Cómo es la metodología?
+                        <span class="text-stone-300 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-stone-500 font-light text-sm leading-relaxed">Combinamos teoría anatómica con práctica intensiva presencial. El enfoque es el Método Oficial Namikoshi, garantizando seguridad y precisión.</p>
+                </details>
+                <details class="group bg-white border border-stone-200 p-6 transition-all duration-300 open:shadow-lg">
+                    <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
+                        ¿Qué incluye la inversión?
+                        <span class="text-stone-300 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <p class="mt-4 text-stone-500 font-light text-sm leading-relaxed">El pago de $130.000 ARS por módulo cubre la formación presencial, el material de estudio y el acceso a la comunidad de soporte post-maestría.</p>
+                </details>
+            </div>
+        </div>
     </section>
 
     <footer id="contacto" class="py-24 px-6 zen-gradient text-center">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl mb-12 italic">¡Asegura tu Plaza Ahora!</h2>
-            <div class="flex flex-col items-center gap-12 mb-16">
+            <h2 class="text-5xl mb-12 italic tracking-tight">¡Inicia tu camino hoy!</h2>
+            <div class="flex flex-col items-center gap-12 mb-20">
                 <div class="bg-white p-6 shadow-2xl rounded-sm border border-stone-200">
-                    <img src="https://i.ibb.co/fwJ3N2F/Screenshot-2025-11-25-17-40-35-544-com-instagram-android-edit.jpg" alt="QR" class="w-48 h-48">
-                    <p class="text-[10px] uppercase tracking-widest mt-4 text-stone-400">Escanea para Inscripción</p>
+                    <img src="https://i.ibb.co/fwJ3N2F/Screenshot-2025-11-25-17-40-35-544-com-instagram-android-edit.jpg" alt="QR Inscripción" class="w-48 h-48">
+                    <p class="text-[10px] uppercase tracking-widest mt-4 text-stone-400 font-bold">Escanea para Consultas</p>
                 </div>
                 <div class="space-y-4 text-xl font-light">
-                    <p><i class="fab fa-whatsapp text-green-700 mr-2"></i> +54 11 7619-4825</p>
-                    <p><i class="fab fa-instagram text-pink-700 mr-2"></i> @espacio_inyo</p>
+                    <p class="flex items-center justify-center gap-3"><i class="fab fa-whatsapp text-stone-900"></i> +54 11 7619-4825</p>
+                    <p class="flex items-center justify-center gap-3"><i class="fab fa-instagram text-stone-900"></i> @espacio_inyo</p>
+                    <p class="text-stone-400 text-sm mt-4 uppercase tracking-widest">Carlos Tejedor 335, Lanús</p>
                 </div>
             </div>
 
-            <div class="border-t border-stone-300 pt-16 mt-16 text-center">
-                <p class="text-xs uppercase tracking-widest text-stone-400 mb-6">Otros Proyectos de Espacio INYO</p>
-                <div class="flex flex-wrap justify-center gap-12 italic text-stone-500 text-sm">
-                    <a href="#" class="hover:text-stone-900 transition underline underline-offset-8 decoration-stone-200">HIIT Con Calistenia</a>
-                    <a href="#" class="hover:text-stone-900 transition underline underline-offset-8 decoration-stone-200">Clases de Yoga</a>
+            <div class="border-t border-stone-200 pt-16 mt-16 text-center">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold">Ecosistema Espacio INYO</p>
+                <div class="flex flex-col md:flex-row justify-center gap-8 md:gap-16 italic text-stone-500 text-sm">
+                    <a href="https://espacio-inyo-hiit.netlify.app" class="hover:text-stone-900 transition underline underline-offset-8 decoration-stone-200" target="_self">HIIT Con Calistenia</a>
+                    <a href="https://espacio-inyo-hiit.netlify.app/yoga" class="hover:text-stone-900 transition underline underline-offset-8 decoration-stone-200" target="_self">Clases de Yoga</a>
                 </div>
-                <p class="mt-20 font-serif text-3xl opacity-20">Espacio INYO</p>
+                <p class="mt-24 font-serif text-4xl opacity-10 tracking-tighter">Espacio INYO</p>
+            </div>
+            
+            <div class="mt-12">
+                <a href="https://wa.me/541176194825" class="inline-block bg-stone-900 text-white px-12 py-5 rounded-full uppercase tracking-widest text-xs font-bold hover:scale-105 transition shadow-xl">
+                    Chatear con el Maestro
+                </a>
             </div>
         </div>
     </footer>
