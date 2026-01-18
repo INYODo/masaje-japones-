@@ -20,16 +20,15 @@
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         
-        /* Estilos de Sesiones */
         .highlight-card { background: #fff; border: 1px solid #eee; transition: all 0.3s ease; height: 100%; }
         .highlight-card:hover { border-color: #991b1b; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        /* Estilos Acordeón Módulos */
-        .module-item { border: 1px solid #eee; background: #fff; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; }
+        /* Acordeones Blindados */
+        .module-item { border: 1px solid #eee; background: #fff; margin-bottom: 1rem; overflow: hidden; }
         .module-header { cursor: pointer; padding: 1.5rem; display: flex; justify-content: space-between; items-center: center; }
         .module-header:hover { background: #fdfbf9; }
         .module-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: #fafafa; }
-        .module-item.active .module-content { max-height: 500px; padding: 2rem; border-top: 1px solid #eee; }
+        .module-item.active .module-content { max-height: 800px; padding: 2rem; border-top: 1px solid #eee; }
         .module-item.active i { transform: rotate(180deg); color: #991b1b; }
     </style>
 </head>
@@ -46,7 +45,7 @@
     <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fdfbf9] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic">
         <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-400 text-xl"><i class="fas fa-times"></i></label>
         <div class="mt-12">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic">Espacio INYO ☯️</p>
+            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic text-center">Espacio INYO ☯️</p>
             <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic">
                 <li><a href="#" class="block text-stone-900 font-bold underline underline-offset-8">Masaje Japonés</a></li>
                 <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition">HIIT Calistenia</a></li>
@@ -63,155 +62,157 @@
             <h1 class="text-5xl md:text-8xl font-bold mb-4 tracking-tighter italic uppercase leading-tight">Masaje Japonés</h1>
             <div class="w-32 h-px bg-red-900 mx-auto my-8"></div>
             <p class="text-lg md:text-2xl text-stone-200 max-w-3xl mx-auto font-light italic leading-relaxed">
-                Terapia de Reordenamiento Biológico y Formación Profesional bajo la Maestría de Gastón Burgos.
+                Reordenamiento Biológico y Formación de Maestría en Espacio INYO.
             </p>
-            <div class="flex flex-col md:flex-row gap-4 mt-10 justify-center">
-                <button onclick="document.getElementById('sesiones').scrollIntoView({behavior:'smooth'})" class="bg-white text-black px-10 py-4 uppercase font-bold text-[10px] tracking-widest hover:bg-stone-200 transition italic">Ver Sesiones</button>
-                <button onclick="document.getElementById('formacion').scrollIntoView({behavior:'smooth'})" class="border border-white text-white px-10 py-4 uppercase font-bold text-[10px] tracking-widest hover:bg-white hover:text-black transition italic">Ver Formación</button>
-            </div>
         </div>
     </header>
 
-    <section id="sesiones" class="py-32 px-6 bg-white border-b border-stone-100">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-center text-4xl mb-20 italic uppercase font-bold text-stone-900">Opciones de Tratamiento</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-stretch italic">
-                
-                <div class="highlight-card p-12 flex flex-col border-t-4 border-stone-400 italic">
-                    <h3 class="text-2xl font-bold mb-4 uppercase">Sesión Terapéutica</h3>
-                    <div class="text-5xl font-bold text-stone-900 mb-6 italic">$60.000</div>
-                    <p class="text-xs text-stone-400 mb-8 uppercase tracking-widest italic">Anma + Shiatsu + Diagnosis</p>
+    <section id="sesion" class="py-32 px-6 bg-white italic">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 uppercase text-stone-900 italic">La Sesión Terapéutica</h2>
+            <p class="text-stone-600 text-lg mb-8 italic">
+                La sesión de masaje japonés Anma y Shiatsu Namikoshi se realiza en **Futón**, permitiendo una lectura integral desde el cráneo hasta los pies. A través de la reflexología profunda, se analiza en detalle la columna vertebral y los procesos nerviosos hacia las extremidades.
+            </p>
+            <p class="text-stone-600 text-lg mb-12 italic">
+                Buscamos el equilibrio y reordenamiento de los patrones nerviosos a nivel músculo-esquelético, descontracturando con movilización y liberación de tensión craneosacral.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-stretch mb-20">
+                <div class="highlight-card p-10 flex flex-col border-t-4 border-stone-300">
+                    <h3 class="text-xl font-bold mb-4 uppercase">Sesión Profunda</h3>
+                    <div class="text-4xl font-bold text-stone-900 mb-6 italic">$60.000</div>
                     <ul class="text-[11px] text-stone-500 space-y-3 mb-10 flex-grow">
-                        <li>• Sesión integral en Futón Tradicional</li>
-                        <li>• Diagnosis de órganos y meridianos (Lectura integral)</li>
-                        <li>• Reordenamiento de patrones músculo-esqueléticos</li>
-                        <li>• Informe de bienestar y seguimiento del proceso</li>
+                        <li>• Diagnosis integral de origen japonés</li>
+                        <li>• Lectura de órganos y meridianos</li>
+                        <li>• Informe de bienestar post-sesión</li>
+                        <li>• Seguimiento sin costo extra</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block w-full border border-stone-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition italic">Reservar Turno</a>
+                    <a href="https://wa.me/541176194825" class="block w-full border border-stone-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 transition">Reservar Turno</a>
                 </div>
-
-                <div class="highlight-card p-12 flex flex-col border-t-4 border-red-900 italic shadow-xl relative overflow-hidden bg-stone-50">
-                    <div class="absolute top-0 right-0 bg-red-900 text-white text-[8px] font-bold px-4 py-1 uppercase tracking-tighter italic">Recomendado</div>
-                    <h3 class="text-2xl font-bold mb-4 uppercase text-stone-900">Plan Reordenamiento Integral</h3>
-                    <div class="text-5xl font-bold text-stone-900 mb-6 italic">$70.000</div>
-                    <p class="text-xs text-red-800 mb-8 uppercase tracking-widest font-bold italic italic">Sesión + 2 Clases de Zen Stretching</p>
-                    <ul class="text-[11px] text-stone-900 space-y-3 mb-10 flex-grow font-semibold">
-                        <li>• Todo lo incluido en la Sesión Terapéutica</li>
+                <div class="highlight-card p-10 flex flex-col border-t-4 border-red-900 shadow-xl bg-stone-50">
+                    <h3 class="text-xl font-bold mb-4 uppercase text-stone-900">Plan Integral</h3>
+                    <div class="text-4xl font-bold text-stone-900 mb-6 italic">$70.000</div>
+                    <ul class="text-[11px] text-stone-900 space-y-3 mb-10 flex-grow font-bold">
+                        <li>• Incluye todo lo de la Sesión Profunda</li>
                         <li>• <strong>BONIFICACIÓN: 2 Clases de Zen Stretching</strong></li>
-                        <li>• Recalibración de patrones nerviosos en práctica</li>
-                        <li>• Plan de estiramientos personalizados para el hogar</li>
+                        <li>• Recalibración postural focalizada</li>
+                        <li>• Plan de estiramientos personalizados</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="block w-full bg-stone-900 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition italic shadow-lg">Reservar Plan Integral</a>
+                    <a href="https://wa.me/541176194825" class="block w-full bg-stone-900 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition shadow-lg">Reservar Plan</a>
                 </div>
             </div>
 
-            <div class="mt-16 grid md:grid-cols-2 gap-12 text-[11px] text-stone-500 italic">
-                <div class="space-y-4">
-                    <p><strong>RESERVA:</strong> Se coordina abonando el 50% por adelantado y el resto al finalizar la sesión.</p>
-                    <p><strong>FICHA:</strong> Se requiere completar una ficha de salud previa para optimizar el tiempo de tratamiento.</p>
-                </div>
-                <div class="border-l border-stone-200 pl-8">
-                    <p class="mb-2 italic font-bold text-stone-700 uppercase">Aviso Ético:</p>
-                    <p>La terapia Shiatsu es complementaria y no reemplaza a la medicina alopática. La diagnosis oriental no constituye un diagnóstico médico.</p>
-                </div>
+            <div class="p-8 bg-[#fdfbf9] border-l-4 border-red-900 text-[11px] text-stone-500 space-y-4">
+                <p><strong>Diagnosis Oriental:</strong> No es un diagnóstico médico. Funciona como complemento vital de la medicina alopática.</p>
+                <p><strong>Reserva:</strong> Turnos coordinados con el 50% de seña vía transferencia o Mercado Pago.</p>
             </div>
         </div>
     </section>
 
-    <section id="formacion" class="py-32 px-6 bg-[#fdfbf9]">
-        <div class="max-w-4xl mx-auto">
+    <section id="formacion" class="py-32 px-6 bg-[#fdfbf9] border-t border-stone-100">
+        <div class="max-w-4xl mx-auto italic">
             <h2 class="text-center text-4xl mb-4 italic uppercase font-bold text-stone-900">Maestría Profesional</h2>
             <p class="text-center text-red-800 text-[10px] uppercase tracking-[0.4em] mb-20 font-bold italic">Promoción Verano Argentina: $130.000 x Módulo</p>
             
-            <div class="italic">
+            <div class="space-y-4">
                 <div class="module-item">
                     <div class="module-header" onclick="toggleModule(this)">
-                        <h4 class="font-bold text-stone-900 uppercase tracking-widest">Módulo I: Fundamentos del Anma</h4>
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">Módulo 1: Silla, Zafu y Seiza (Quick Fix) - 18hs</h4>
                         <i class="fas fa-chevron-down text-stone-400"></i>
                     </div>
                     <div class="module-content">
-                        <p class="text-sm text-stone-600 leading-relaxed mb-4">Estudio profundo del masaje ancestral japonés enfocado en la liberación de la fatiga. Aprenderás las 7 técnicas de fricción, presión y estiramiento que reordenan el sistema circulatorio y neuromuscular.</p>
-                        <p class="text-xs font-bold text-red-900">Incluye: Práctica en Futón y biomecánica básica.</p>
+                        <p class="text-sm text-stone-600 mb-4">Especialización en tratamientos de "solución rápida" y masajes en silla ergonómica o posturas de meditación (Seiza). Ideal para entornos corporativos y alivio inmediato de la cintura escapular.</p>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Biomecánica en postura de rodillas (Seiza)</li>
+                            <li>• Técnicas de presión en silla para oficina</li>
+                            <li>• Protocolos de 15 a 20 minutos de alta efectividad</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="module-item">
                     <div class="module-header" onclick="toggleModule(this)">
-                        <h4 class="font-bold text-stone-900 uppercase tracking-widest">Módulo II: Shiatsu Namikoshi Oficial</h4>
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">Módulo 2: Decúbito Lateral (Lado) - 18hs</h4>
                         <i class="fas fa-chevron-down text-stone-400"></i>
                     </div>
                     <div class="module-content">
-                        <p class="text-sm text-stone-600 leading-relaxed mb-4">La técnica del pulgar reconocida mundialmente. Localización anatómica de puntos Tsubo y protocolos oficiales para el equilibrio del sistema nervioso autónomo.</p>
-                        <p class="text-xs font-bold text-red-900">Incluye: Anatomía aplicada y protocolos de presión.</p>
+                        <p class="text-sm text-stone-600 mb-4">Maestría en el abordaje lateral. Postura fundamental para tratar pacientes con movilidad reducida, embarazadas o patologías de columna que impiden el boca abajo.</p>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Apertura de meridianos laterales (Vesícula Biliar)</li>
+                            <li>• Estiramientos estructurales en posición de lado</li>
+                            <li>• Tratamiento de ciatalgias y bloqueos de cadera</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="module-item">
                     <div class="module-header" onclick="toggleModule(this)">
-                        <h4 class="font-bold text-stone-900 uppercase tracking-widest">Módulo III: Diagnosis DAIKI & Hara</h4>
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">Módulo 3: Decúbito Prono (Boca Abajo) - 18hs</h4>
                         <i class="fas fa-chevron-down text-stone-400"></i>
                     </div>
                     <div class="module-content">
-                        <p class="text-sm text-stone-600 leading-relaxed mb-4">El arte de la lectura corporal. Aprenderás a diagnosticar bloqueos mediante la observación del abdomen (Hara) y el pulso, permitiendo un tratamiento personalizado y efectivo.</p>
-                        <p class="text-xs font-bold text-red-900">Incluye: Técnicas de diagnosis oriental profesional.</p>
+                        <p class="text-sm text-stone-600 mb-4">El pilar del Shiatsu Namikoshi. Trabajo profundo sobre los canales de Vejiga y los puntos Yu de espalda para regular el sistema nervioso autónomo.</p>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Alineación de columna y paravertebrales</li>
+                            <li>• Presión profunda con pulgares sobre puntos Tsubo</li>
+                            <li>• Liberación de la cadena posterior completa</li>
+                        </ul>
                     </div>
                 </div>
 
                 <div class="module-item">
                     <div class="module-header" onclick="toggleModule(this)">
-                        <h4 class="font-bold text-stone-900 uppercase tracking-widest">Módulo IV: Zen Stretching & Clínica</h4>
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">Módulo 4: Decúbito Supino (Boca Arriba) - 32hs</h4>
                         <i class="fas fa-chevron-down text-stone-400"></i>
                     </div>
                     <div class="module-content">
-                        <p class="text-sm text-stone-600 leading-relaxed mb-4">Integración final del estiramiento de meridianos. Cómo guiar al paciente en su recuperación postural permanente y gestión clínica del consultorio terapéutico.</p>
-                        <p class="text-xs font-bold text-red-900">Incluye: Certificación final tras 60 horas de formación.</p>
+                        <p class="text-sm text-stone-600 mb-4">Módulo de máxima carga horaria. Se enfoca en la Diagnosis de Abdomen (Hara), tratamiento de extremidades, cuello, rostro y cierre energético del tratamiento.</p>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Diagnosis por el tacto en zona abdominal</li>
+                            <li>• Movilización articular de miembros superiores e inferiores</li>
+                            <li>• Técnicas de Anma facial y craneosacral final</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-            <div class="mt-20 text-center italic">
-                <a href="https://wa.me/541176194825" class="inline-block bg-stone-900 text-white px-12 py-5 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition shadow-xl">Consultar cupos para Módulo I</a>
+            
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/541176194825" class="inline-block bg-stone-900 text-white px-12 py-5 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition">Inscribirme al Próximo Módulo</a>
             </div>
         </div>
     </section>
 
     <footer class="py-32 px-6 bg-white text-center border-t border-stone-100 italic">
-        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900 italic">Espacio INYO ☯️</h2>
-        <div class="grid md:grid-cols-2 gap-12 mb-20">
+        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900">Espacio INYO ☯️</h2>
+        <div class="grid md:grid-cols-2 gap-12 mb-20 italic">
             <div class="flex flex-col items-center">
                 <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-32 h-32 mb-4 object-contain grayscale">
-                <p class="text-[10px] uppercase font-bold text-stone-400 tracking-widest underline underline-offset-4 italic">WhatsApp: 11 7619-4825</p>
+                <p class="text-[10px] uppercase font-bold text-stone-400 tracking-widest italic underline underline-offset-4">WhatsApp: 11 7619-4825</p>
             </div>
             <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left">
-                <p class="text-xs font-bold uppercase tracking-widest text-stone-900 mb-2 italic">Sede Lanús Oeste Centro</p>
-                <p class="text-xs text-stone-500 italic">Gdor. Carlos Tejedor 335.</p>
+                <p class="text-xs font-bold uppercase tracking-widest text-stone-900 mb-2">Sede Lanús Oeste Centro</p>
+                <p class="text-xs text-stone-500">Gdor. Carlos Tejedor 335.</p>
             </div>
         </div>
-        <div class="border-t border-stone-200 pt-16 mt-16 italic">
-            <h3 class="text-[10px] uppercase tracking-[0.6em] text-stone-400 mb-12 font-bold italic">ECOSISTEMA INYO</h3>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 italic text-stone-400 text-[10px] font-bold tracking-widest">
-                <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-stone-900 transition underline underline-offset-8">HIIT Calistenia</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-stone-900 transition underline underline-offset-8">Clases de Yoga</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-stone-900 transition underline underline-offset-8">Zen Stretching</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-stone-900 transition underline underline-offset-8">Artes Marciales</a>
-            </div>
-            <p class="mt-20 text-[9px] text-stone-300 uppercase tracking-widest font-bold">© 2026 Espacio INYO | Maestría Terapéutica</p>
+        <div class="border-t border-stone-200 pt-16 mt-16 text-stone-400 text-[10px] font-bold tracking-widest flex flex-wrap justify-center gap-x-12 gap-y-8 italic">
+            <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-stone-900 transition underline underline-offset-8">HIIT Calistenia</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-stone-900 transition underline underline-offset-8">Clases de Yoga</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-stone-900 transition underline underline-offset-8">Zen Stretching</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-stone-900 transition underline underline-offset-8">Artes Marciales</a>
         </div>
     </footer>
 
-    <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-stone-900 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform z-50">
+    <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-all duration-300 z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        // Función Acordeón Quirúrgica
         function toggleModule(header) {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
             document.querySelectorAll('.module-item').forEach(i => i.classList.remove('active'));
             if (!isActive) item.classList.add('active');
         }
-
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
