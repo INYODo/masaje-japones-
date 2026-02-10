@@ -3,378 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiryū Dōjō 🐉 | Bujinkan Budo Taijutsu - Gastón Burgos</title>
+    <title>Maestría en Masaje Japonés | Gastón Burgos - Espacio INYO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         h1, h2, h3, .brand-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-        body { font-family: 'Lato', sans-serif; background-color: #0c0a09; color: #e7e5e4; line-height: 1.6; }
-        
-        .hero-bujinkan { 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(12,10,9,1)), 
-            url('https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1470&q=80'); 
-            background-size: cover; background-position: center; 
-            min-height: 100vh;
+        body { font-family: 'Lato', sans-serif; background-color: #fdfbf9; color: #2d2d2d; line-height: 1.8; }
+        .hero-masaje { 
+            background: linear-gradient(rgba(20, 20, 20, 0.8), rgba(20, 20, 20, 0.95)), 
+            url('https://inyodo.github.io/espacio-inyo-web/imagen/tecnicasautenticas.jpeg'); 
+            background-size: cover; background-position: center; min-height: 80vh;
         }
-
-        .dragon-bg {
-            position: absolute;
-            right: -5%;
-            top: 10%;
-            font-size: 25rem;
-            color: rgba(185, 28, 28, 0.05);
-            z-index: 0;
-            user-select: none;
-            filter: blur(2px);
-        }
-
-        .section-dark { background-color: #0c0a09; position: relative; overflow: hidden; }
-        .border-gold { border-color: #8a744d; }
-        .text-gold { color: #8a744d; }
-
         #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
         #menu-toggle:checked ~ #menu-overlay { display: block; }
-
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* Acordeones Ryuha - CORRECCIÓN QUIRÚRGICA */
-        .ryuha-item { border: 1px solid rgba(255,255,255,0.05); margin-bottom: 1rem; background: rgba(255,255,255,0.01); }
-        .ryuha-header { cursor: pointer; transition: all 0.3s ease; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .ryuha-header:hover { background: rgba(153, 27, 27, 0.15); }
         
-        .ryuha-content { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.6s cubic-bezier(0, 1, 0, 1); 
-            padding: 0 2rem; /* El padding lateral se mantiene, pero el vertical es 0 */
-        }
+        .highlight-card { background: #fff; border: 1px solid #eee; transition: all 0.3s ease; height: 100%; }
+        .highlight-card:hover { border-color: #991b1b; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        .ryuha-item.active .ryuha-content { 
-            max-height: 1000px; 
-            padding: 2rem; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            transition: max-height 1s ease-in; 
-        }
-        .ryuha-item.active i { transform: rotate(180deg); color: #991b1b; }
+        /* Acordeones Blindados */
+        .module-item { border: 1px solid #eee; background: #fff; margin-bottom: 1rem; overflow: hidden; }
+        .module-header { cursor: pointer; padding: 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+        .module-header:hover { background: #fdfbf9; }
+        .module-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out; background: #fafafa; }
+        .module-item.active .module-content { max-height: 800px; padding: 2rem; border-top: 1px solid #eee; }
+        .module-item.active i { transform: rotate(180deg); color: #991b1b; }
 
-        .price-card { background: linear-gradient(145deg, #171717, #0c0a09); border: 1px solid rgba(255,255,255,0.05); transition: all 0.4s ease; }
-        .price-card:hover { border-color: #991b1b; transform: translateY(-5px); }
-
-        /* Estilo Botón Taiko Drums */
-        .music-btn-taiko {
-            position: fixed; bottom: 40px; left: 40px; width: 60px; height: 60px;
-            border-radius: 50%; background: #0c0a09; border: 2px solid #991b1b;
+        /* Estilo Botón Música Masaje (Efecto Respiración Zen) */
+        .music-btn-zen {
+            position: fixed; bottom: 32px; left: 32px; width: 56px; height: 56px;
+            border-radius: 50%; background: #ffffff; border: 1px solid #e5e7eb;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 50; transition: all 0.3s ease;
+            cursor: pointer; z-index: 50; transition: all 0.5s ease;
+        }
+        .music-btn-zen.active {
+            animation: breathe-zen 4s infinite ease-in-out;
+            border-color: #991b1b;
             color: #991b1b;
         }
-        .music-btn-taiko.active {
-            animation: taiko-pulse 1.5s infinite ease-in-out;
-            background: #991b1b;
-            color: #ffffff;
-        }
-        @keyframes taiko-pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.7); }
-            50% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(153, 27, 27, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(153, 27, 27, 0); }
+        @keyframes breathe-zen {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.2); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(153, 27, 27, 0); }
         }
     </style>
 </head>
-<body class="antialiased text-white">
+<body class="antialiased">
 
-    <div id="taiko-control" class="music-btn-taiko shadow-2xl" onclick="toggleTaikoMusic()">
-        <i id="taiko-icon" class="fas fa-drum"></i>
+    <div id="zen-control" class="music-btn-zen" onclick="toggleZenMusic()">
+        <i id="zen-icon" class="fas fa-torii-gate"></i>
     </div>
-    <audio id="taiko-audio" loop>
-        <source src="audio/taikodrums.mp3" type="audio/mpeg">
+    <audio id="zen-audio" loop>
+        <source src="audio/japanesegarden.mp3" type="audio/mpeg">
     </audio>
 
     <input type="checkbox" id="menu-toggle" class="hidden">
-    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/5 backdrop-blur-md p-3 rounded-sm border border-white/10 hover:bg-red-900/40 transition duration-300">
-        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
-        <div class="w-6 h-0.5 bg-white mb-1.5 transition"></div>
-        <div class="w-6 h-0.5 bg-white transition"></div>
+    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/20 text-white hover:bg-white hover:text-black transition">
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current transition"></div>
     </label>
+    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden"></label>
 
-    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 hidden"></label>
-
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#0c0a09] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-white/5">
-        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-500 text-xl transition hover:text-white"><i class="fas fa-times"></i></label>
-        <div class="mt-12 italic">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-red-700 mb-8 font-bold border-b border-white/5 pb-2">Espacio INYO ☯️</p>
-            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic">
-                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block hover:text-red-600 transition">Masaje Japonés</a></li>
-                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-red-600 transition">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-red-600 transition">Clases de Yoga</a></li>
-                <li><a href="https://www.holayoga.com.ar/" target="_blank" class="block hover:text-red-600 transition">Coaching Online</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-red-600 transition">Zen Stretching</a></li>
-                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-red-600 transition">Chamanismo</a></li>
-                <li><a href="https://inyodo.github.io/Qigong/" class="block hover:text-red-600 transition">Qigong</a></li>
-                <li><a href="#" class="block text-red-700 font-bold underline underline-offset-8">Artes Marciales</a></li>
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fdfbf9] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic">
+        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-400 text-xl"><i class="fas fa-times"></i></label>
+        <div class="mt-12">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic text-center">Espacio INYO ☯️</p>
+            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic text-stone-900">
+                <li><a href="#" class="block font-bold underline underline-offset-8">Masaje Japonés</a></li>
+                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-stone-600 transition">Clases de Yoga</a></li>
+                <li><a href="https://www.holayoga.com.ar/" target="_blank" class="block hover:text-stone-600 transition">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-stone-600 transition">Zen Stretching</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-stone-600 transition">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/Qigong/" class="block hover:text-stone-600 transition">Qigong</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-stone-600 transition">Artes Marciales</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero-bujinkan flex flex-col justify-center items-center text-center p-6 relative overflow-hidden">
-        <div class="dragon-bg font-bold">竜</div>
-        <div class="z-10 fade-in visible">
-            <p class="text-red-700 text-xs tracking-[0.8em] mb-6 font-bold uppercase italic">Bujinkan Budo Taijutsu</p>
-            <h1 class="text-6xl md:text-9xl font-bold mb-4 tracking-tighter italic uppercase leading-none">Kiryū Dōjō 🐉</h1>
-            <div class="w-32 h-1 bg-red-800 mx-auto my-8"></div>
-            <p class="text-xl md:text-2xl text-stone-400 max-w-3xl mx-auto font-light italic leading-relaxed">
-                "El Dragón que se Eleva". Preservando la esencia y la efectividad del arte del guerrero bajo la guía de Gastón Burgos.
+    <header class="hero-masaje flex flex-col justify-center items-center text-center p-6 text-white">
+        <div class="fade-in visible text-center">
+            <p class="text-stone-400 text-xs tracking-[0.8em] mb-4 font-bold uppercase italic">Anma • Shiatsu • Tradición</p>
+            <h1 class="text-5xl md:text-8xl font-bold mb-4 tracking-tighter italic uppercase leading-tight text-white">Masaje Japonés</h1>
+            <div class="w-32 h-px bg-red-900 mx-auto my-8"></div>
+            <p class="text-lg md:text-2xl text-stone-200 max-w-3xl mx-auto font-light italic leading-relaxed">
+                Reordenamiento Biológico y Formación de Maestría en Espacio INYO.
             </p>
-        </div>
-        <div class="absolute bottom-10 animate-bounce">
-            <i class="fas fa-chevron-down text-white"></i>
         </div>
     </header>
 
-    <section class="section-dark py-32 px-6 border-b border-white/5">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-5xl mb-16 italic uppercase font-bold tracking-tight border-l-4 border-red-800 pl-8">Mi Trayectoria en el Budo</h2>
-            <div class="space-y-12 text-stone-400 text-lg italic leading-relaxed">
-                <p class="fade-in visible">
-                    Inicié mi camino en las artes marciales en el año **2002**, sumergiéndome en el estudio profundo de la **Bujinkan Budo Taijutsu**. A lo largo de estas décadas, he dedicado mi vida a comprender no solo la técnica física, sino la biomecánica corporal y la psicología del conflicto que define a este arte milenario.
-                </p>
-                <p class="fade-in visible">
-                    Mi formación se ha centrado en la preservación de las tradiciones, integrando los principios del *Taijutsu* (movimiento del cuerpo) con un enfoque pragmático y real, adaptable a la vida moderna sin perder la mística ancestral desde la sede de Espacio INYO.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark py-32 px-6">
+    <section id="sesion" class="py-32 px-6 bg-white italic text-stone-900">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-center text-3xl mb-20 italic uppercase font-bold tracking-[0.4em] text-stone-500">Las 9 Tradiciones (Ryuha)</h2>
-            <div class="space-y-4 italic">
-                
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Togakure Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Fundada hace más de 800 años, es la base del Ninjutsu en la Bujinkan. Esta escuela se especializa en el uso estratégico de la distancia, técnicas de escape (Shinobi Iri) y el uso de herramientas tradicionales para prevalecer en situaciones de supervivencia extrema.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gyokko Ryu Kosshijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Conocida como la escuela de "El Tigre de Diamante". Es la columna vertebral del movimiento corporal (Taijutsu). Se centra en el movimiento circular, el control del equilibrio del adversario y ataques precisos a puntos vitales y centros nerviosos (Kyusho).
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Koto Ryu Koppojutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Significa "Derribar al Tigre". Esta tradición se especializa en la destrucción de la estructura ósea del oponente. Utiliza distancias de combate muy cortas, movimientos lineales agresivos y golpes secos diseñados para finalizar el conflicto de manera inmediata.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Shinden Fudo Ryu Dakentaijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            La escuela del "Corazón Inmutable". Su enseñanza principal radica en la postura natural (Shizen). Se entrena para luchar desde cualquier posición cotidiana, utilizando la fuerza de la naturaleza y el entorno para generar una potencia ininterrumpida.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Kukishinden Ryu Happo Biken</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            "La Escuela de los Nueve Dioses Demonios". Es famosa por su maestría en el uso de armas tradicionales japonesas como el Bo (palo largo), la Naginata (alabarda) y la espada. Sus técnicas provienen directamente de la experiencia en campos de batalla navales y terrestres.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Takagi Yoshin Ryu Jutaijutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Una escuela de alto nivel en proyecciones, controles y luxaciones articulares. Sus técnicas fueron perfeccionadas para el combate en espacios reducidos (interiores), donde la precisión en el control del cuerpo del oponente es vital.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gikan Ryu Koppojutsu</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Traducida como "Verdad, Lealtad y Justicia". Se distingue por el uso de posturas bajas y un manejo dinámico del centro de gravedad. Sus patadas y ataques de mano están diseñados para desequilibrar al adversario de forma imprevista.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Gyokushin Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            Esta escuela pone énfasis en los aspectos estratégicos, tácticos y de espionaje del Ninpo. Prioriza el control psicológico del combate y el uso de técnicas de proyección muy particulares que no se encuentran en otras escuelas.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="ryuha-item">
-                    <div class="ryuha-header" onclick="toggleRyu(this)">
-                        <h3 class="text-red-700 font-bold tracking-widest uppercase italic">Kumogakure Ryu Ninpo</h3>
-                        <i class="fas fa-chevron-down text-stone-600 transition-transform duration-500"></i>
-                    </div>
-                    <div class="ryuha-content">
-                        <p class="text-stone-400 text-sm leading-relaxed italic">
-                            "Oculto en las Nubes". Se especializa en el combate de salto, técnicas de escalada y el uso del entorno natural para la ocultación. Sus métodos de movimiento son únicos y extremadamente fluidos.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="section-dark py-20 px-6 border-y border-white/5">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-red-700 font-bold tracking-[0.4em] text-xs uppercase mb-8 italic">Entrenamiento Presencial</h2>
-            <div class="bg-white/5 p-12 border border-white/5 inline-block w-full">
-                <p class="text-3xl md:text-4xl font-bold mb-2 uppercase italic tracking-tighter">Martes y Jueves</p>
-                <p class="text-red-600 text-2xl font-bold mb-6 italic">19:00 HS</p>
-                <p class="text-stone-500 text-sm italic tracking-widest uppercase">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="section-dark py-32 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-center text-5xl mb-20 italic uppercase font-bold tracking-tighter">Inversión Marcial</h2>
-            <div class="grid md:grid-cols-3 gap-8 items-stretch italic">
-                
-                <div class="price-card p-10 flex flex-col italic">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Pack Guerrero (1x)</h3>
-                    <div class="text-5xl font-bold mb-2 text-white italic">$49.000</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">1 vez x semana</p>
-                    <ul class="text-[11px] text-stone-400 space-y-4 mb-10 flex-grow italic">
-                        <li><i class="fas fa-check text-red-800 mr-2"></i> 4 Clases de Bujinkan al mes</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 1 Clase semanal (Día de práctica)</li>
-                        <li><i class="fas fa-plus text-red-800 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual Zen Stretching</li>
+            <h2 class="text-4xl font-bold mb-12 uppercase text-stone-900 italic">La Sesión Terapéutica</h2>
+            <p class="text-stone-600 text-lg mb-8 italic">
+                La sesión de masaje japonés Anma y Shiatsu Namikoshi se realiza en **Futón**, permitiendo una lectura integral desde el cráneo hasta los pies. A través de la reflexología profunda, se analiza en detalle la columna vertebral y los procesos nerviosos hacia las extremidades.
+            </p>
+            <p class="text-stone-600 text-lg mb-12 italic">
+                Buscamos el equilibrio y reordenamiento de los patrones nerviosos a nivel músculo-esquelético, descontracturando con movilización y liberación de tensión craneosacral.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-stretch mb-20">
+                <div class="highlight-card p-10 flex flex-col border-t-4 border-stone-300">
+                    <h3 class="text-xl font-bold mb-4 uppercase">Sesión Profunda</h3>
+                    <div class="text-4xl font-bold text-stone-900 mb-6 italic">$60.000</div>
+                    <ul class="text-[11px] text-stone-500 space-y-3 mb-10 flex-grow">
+                        <li>• Diagnosis integral de origen japonés</li>
+                        <li>• Lectura de órganos y meridianos</li>
+                        <li>• Informe de bienestar post-sesión</li>
+                        <li>• Seguimiento sin costo extra</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="mt-auto block border border-red-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic">Inscribirme</a>
+                    <a href="https://wa.me/541176194825" class="block w-full border border-stone-900 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 transition">Reservar Turno</a>
                 </div>
-
-                <div class="bg-red-950/20 p-12 border-2 border-red-800 relative transform scale-105 shadow-2xl flex flex-col italic">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-800 text-white text-[9px] px-4 py-1 font-bold uppercase tracking-widest italic">Máximo Rendimiento</span>
-                    <h3 class="text-red-600 font-bold mb-4 uppercase text-xs italic">Pack Shogun (2x)</h3>
-                    <div class="text-6xl font-bold mb-2 text-white italic">$55.000</div>
-                    <p class="text-stone-500 text-[10px] font-bold uppercase mb-8 italic">2 veces x semana (8 clases al mes)</p>
-                    <ul class="text-[11px] text-stone-300 space-y-4 mb-10 font-bold flex-grow italic">
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> 8 Clases de Bujinkan al mes</li>
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>BENEFICIO HIIT:</strong> 2 Clases semanales complementarias</li>
-                        <li><i class="fas fa-star text-red-600 mr-2"></i> <strong>RECUPERACIÓN:</strong> 1 Clase mensual Zen Stretching</li>
+                <div class="highlight-card p-10 flex flex-col border-t-4 border-red-900 shadow-xl bg-stone-50">
+                    <h3 class="text-xl font-bold mb-4 uppercase text-stone-900">Plan Integral</h3>
+                    <div class="text-4xl font-bold text-stone-900 mb-6 italic">$70.000</div>
+                    <ul class="text-[11px] text-stone-900 space-y-3 mb-10 flex-grow font-bold">
+                        <li>• Incluye todo lo de la Sesión Profunda</li>
+                        <li>• <strong>BONIFICACIÓN: 2 Clases de Zen Stretching</strong></li>
+                        <li>• Recalibración postural focalizada</li>
+                        <li>• Plan de estiramientos personalizados</li>
                     </ul>
-                    <a href="https://wa.me/541176194825" class="mt-auto block bg-red-800 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-red-900 transition italic shadow-lg">Elegir Shogun</a>
+                    <a href="https://wa.me/541176194825" class="block w-full bg-stone-900 text-white py-4 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition shadow-lg">Reservar Plan</a>
                 </div>
+            </div>
 
-                <div class="price-card p-10 flex flex-col italic">
-                    <h3 class="text-stone-500 font-bold mb-4 uppercase text-xs italic">Prueba Marcial</h3>
-                    <div class="text-4xl font-bold mb-2 text-white italic">GRATIS</div>
-                    <p class="text-red-700 text-[10px] font-bold uppercase mb-8 italic">Enero y Febrero</p>
-                    <p class="text-[11px] text-stone-500 mb-8 italic">Clase suelta: $18.000. Vení a conocer el Kiryū Dōjō sin cargo este verano.</p>
-                    <a href="https://wa.me/541176194825" class="mt-auto block border border-white/10 py-3 text-center text-[10px] font-bold uppercase tracking-widest hover:bg-white hover:text-black transition italic">Reservar</a>
-                </div>
+            <div class="p-8 bg-[#fdfbf9] border-l-4 border-red-900 text-[11px] text-stone-500 space-y-4">
+                <p><strong>Diagnosis Oriental:</strong> No es un diagnóstico médico. Funciona como complemento vital de la medicina alopática.</p>
+                <p><strong>Reserva:</strong> Turnos coordinados con el 50% de seña vía transferencia o Mercado Pago.</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-32 px-6 bg-black text-center border-t border-white/5 italic">
-        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-white">Espacio INYO ☯️</h2>
-        
-        <div class="grid md:grid-cols-2 gap-20 mb-24 max-w-5xl mx-auto italic text-white">
+    <section id="formacion" class="py-32 px-6 bg-[#fdfbf9] border-t border-stone-100">
+        <div class="max-w-4xl mx-auto italic">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl mb-4 italic uppercase font-bold text-stone-900 tracking-tighter">Maestría Profesional</h2>
+                <div class="inline-block bg-stone-900 text-white px-8 py-3 shadow-xl">
+                    <p class="text-[10px] uppercase tracking-[0.3em] mb-1 font-light text-stone-400">Valor Oficial por Módulo</p>
+                    <span class="text-3xl font-bold">$160.000</span>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">
+                            <i class="fas fa-lock text-red-900 mr-2 text-xs"></i> Módulo 1: Silla, Zafu y Seiza (Quick Fix) - 18hs
+                        </h4>
+                        <i class="fas fa-chevron-down text-stone-400"></i>
+                    </div>
+                    <div class="module-content">
+                        <p class="text-sm text-stone-600 mb-4">Especialización en tratamientos de "solución rápida" y masajes en silla ergonómica o posturas de meditación (Seiza). Ideal para entornos corporativos e inmediata relajación.</p>
+                        <div class="my-6 p-6 bg-stone-100 border border-dashed border-stone-300 text-center text-stone-900">
+                            <p class="text-[10px] uppercase tracking-widest text-stone-500 mb-3">Acceso exclusivo para alumnos registrados</p>
+                            <a href="https://inyodo.github.io/Shiatsu-Namikoshi-Modulos/" class="inline-block bg-red-900 text-white px-6 py-3 text-[9px] font-bold uppercase tracking-widest hover:bg-black transition">
+                                <i class="fas fa-key mr-2"></i> Ingresar al Material de Estudio
+                            </a>
+                        </div>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Biomecánica en postura de rodillas (Seiza)</li>
+                            <li>• Técnicas de presión en silla para oficina</li>
+                            <li>• Protocolos de alta efectividad</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">
+                            <i class="fas fa-lock text-red-900 mr-2 text-xs"></i> Módulo 2: Decúbito Lateral (Lado) - 18hs
+                        </h4>
+                        <i class="fas fa-chevron-down text-stone-400"></i>
+                    </div>
+                    <div class="module-content">
+                        <p class="text-sm text-stone-600 mb-4">Maestría en el abordaje lateral. Postura fundamental para pacientes con movilidad reducida o patologías de columna.</p>
+                        <div class="my-6 p-6 bg-stone-100 border border-dashed border-stone-300 text-center">
+                            <a href="https://inyodo.github.io/Shiatsu-Namikoshi-Modulos/" class="inline-block bg-red-900 text-white px-6 py-3 text-[9px] font-bold uppercase tracking-widest hover:bg-black transition">
+                                <i class="fas fa-key mr-2"></i> Acceso con Llave de Alumno
+                            </a>
+                        </div>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Apertura de meridianos laterales</li>
+                            <li>• Estiramientos estructurales</li>
+                            <li>• Tratamiento de ciatalgias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">
+                            <i class="fas fa-lock text-red-900 mr-2 text-xs"></i> Módulo 3: Decúbito Prono (Boca Abajo) - 18hs
+                        </h4>
+                        <i class="fas fa-chevron-down text-stone-400"></i>
+                    </div>
+                    <div class="module-content">
+                        <p class="text-sm text-stone-600 mb-4">El pilar del Shiatsu Namikoshi. Trabajo profundo sobre canales de Vejiga y puntos Yu para regular el sistema nervioso.</p>
+                        <div class="my-6 p-6 bg-stone-100 border border-dashed border-stone-300 text-center">
+                            <a href="https://inyodo.github.io/Shiatsu-Namikoshi-Modulos/" class="inline-block bg-red-900 text-white px-6 py-3 text-[9px] font-bold uppercase tracking-widest hover:bg-black transition">
+                                <i class="fas fa-key mr-2"></i> Ver Guía Técnica del Módulo
+                            </a>
+                        </div>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Alineación de columna y paravertebrales</li>
+                            <li>• Presión profunda sobre puntos Tsubo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module-item">
+                    <div class="module-header" onclick="toggleModule(this)">
+                        <h4 class="font-bold text-stone-900 uppercase text-sm tracking-widest italic">
+                            <i class="fas fa-lock text-red-900 mr-2 text-xs"></i> Módulo 4: Decúbito Supino (Boca Arriba) - 32hs
+                        </h4>
+                        <i class="fas fa-chevron-down text-stone-400"></i>
+                    </div>
+                    <div class="module-content">
+                        <p class="text-sm text-stone-600 mb-4">Diagnosis de Abdomen (Hara), tratamiento de extremidades, cuello, rostro y cierre energético.</p>
+                        <div class="my-6 p-6 bg-stone-100 border border-dashed border-stone-300 text-center">
+                            <a href="https://inyodo.github.io/Shiatsu-Namikoshi-Modulos/" class="inline-block bg-red-900 text-white px-6 py-3 text-[9px] font-bold uppercase tracking-widest hover:bg-black transition">
+                                <i class="fas fa-key mr-2"></i> Acceder a Protocolo Supino
+                            </a>
+                        </div>
+                        <ul class="text-xs text-stone-500 space-y-2">
+                            <li>• Diagnosis por el tacto en zona abdominal</li>
+                            <li>• Técnicas de Anma facial y craneosacral final</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center text-stone-900">
+                <p class="text-[10px] text-stone-400 uppercase tracking-widest mb-4">¿Consultas sobre la certificación?</p>
+                <a href="https://wa.me/541176194825" class="inline-block bg-stone-900 text-white px-12 py-5 text-[10px] font-bold uppercase tracking-widest hover:bg-stone-700 transition">Inscribirme al Próximo Módulo</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-32 px-6 bg-white text-center border-t border-stone-100 italic text-stone-900">
+        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900">Espacio INYO ☯️</h2>
+        <div class="grid md:grid-cols-2 gap-12 mb-20 italic">
             <div class="flex flex-col items-center">
-                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-40 h-40 mb-6 object-contain grayscale invert opacity-50 hover:opacity-100 transition duration-500">
-                <p class="text-[11px] uppercase font-bold text-stone-500 tracking-[0.4em] italic underline underline-offset-8 decoration-red-900">WhatsApp: 11 7619-4825</p>
+                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-32 h-32 mb-4 object-contain grayscale">
+                <p class="text-[10px] uppercase font-bold text-stone-400 tracking-widest italic underline underline-offset-4">WhatsApp: 11 7619-4825</p>
             </div>
-            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left border-l border-white/5 md:pl-20 italic">
-                <p class="text-sm font-bold uppercase tracking-widest text-red-700 mb-4 italic">Kiryū Dōjō 🐉</p>
-                <p class="text-stone-500 text-sm leading-relaxed italic">Gdor. Carlos Tejedor 335, Lanús Oeste Centro.</p>
-                <div class="mt-8 flex gap-6 text-stone-600 italic">
-                    <a href="https://www.instagram.com/espacio_inyo" class="hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="mailto:gastburgos@hotmail.com" class="hover:text-white transition"><i class="far fa-envelope text-xl"></i></a>
-                </div>
+            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left text-stone-900">
+                <p class="text-xs font-bold uppercase tracking-widest mb-2">Sede Lanús Oeste Centro</p>
+                <p class="text-xs text-stone-500">Gdor. Carlos Tejedor 335.</p>
             </div>
         </div>
-
-        <div class="border-t border-white/5 pt-20 mt-20 italic">
-            <h3 class="text-[10px] uppercase tracking-[0.8em] text-stone-600 mb-12 font-bold italic">ECOSISTEMA INYO</h3>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-8 italic text-stone-500 text-[10px] font-bold tracking-[0.2em]">
-                <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Masaje Japonés</a>
-                <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">HIIT Calistenia</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Clases de Yoga</a>
-                <a href="https://www.holayoga.com.ar/" target="_blank" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Coaching Online</a>
-                <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Zen Stretching</a>
-                <a href="https://inyodo.github.io/chamanismo/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Chamanismo</a>
-                <a href="https://inyodo.github.io/Qigong/" class="hover:text-red-600 transition underline underline-offset-8 decoration-white/5">Qigong</a>
-            </div>
-            <p class="mt-24 text-[9px] text-stone-800 uppercase tracking-[0.5em] font-bold italic text-white">© 2026 Espacio INYO | Tradición Marcial</p>
+        <div class="border-t border-stone-200 pt-16 mt-16 text-stone-900 text-[10px] font-bold tracking-widest flex flex-wrap justify-center gap-x-12 gap-y-8 italic">
+            <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-stone-900 transition underline underline-offset-8">HIIT Calistenia</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-stone-900 transition underline underline-offset-8">Clases de Yoga</a>
+            <a href="https://www.holayoga.com.ar/" target="_blank" class="hover:text-stone-900 transition underline underline-offset-8">Coaching Online</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-stone-900 transition underline underline-offset-8">Zen Stretching</a>
+            <a href="https://inyodo.github.io/chamanismo/" class="hover:text-stone-900 transition underline underline-offset-8">Chamanismo</a>
+            <a href="https://inyodo.github.io/Qigong/" class="hover:text-stone-900 transition underline underline-offset-8">Qigong</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-stone-900 transition underline underline-offset-8">Artes Marciales</a>
         </div>
     </footer>
 
-    <a href="https://wa.me/541176194825" class="fixed bottom-10 right-10 bg-[#25d366]/20 backdrop-blur-sm text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:bg-[#25d366] hover:scale-110 transition-all duration-300 z-50 border border-white/10">
+    <a href="https://wa.me/541176194825" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-all duration-300 z-50">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
-        function toggleTaikoMusic() {
-            const audio = document.getElementById('taiko-audio');
-            const btn = document.getElementById('taiko-control');
-            const icon = document.getElementById('taiko-icon');
+        function toggleZenMusic() {
+            const audio = document.getElementById('zen-audio');
+            const btn = document.getElementById('zen-control');
+            const icon = document.getElementById('zen-icon');
             if (audio.paused) {
                 audio.play();
                 btn.classList.add('active');
-                icon.className = "fas fa-wind"; 
+                icon.className = "fas fa-spa";
             } else {
                 audio.pause();
                 btn.classList.remove('active');
-                icon.className = "fas fa-drum";
+                icon.className = "fas fa-torii-gate";
             }
         }
 
-        function toggleRyu(header) {
+        function toggleModule(header) {
             const item = header.parentElement;
             const isActive = item.classList.contains('active');
-            document.querySelectorAll('.ryuha-item').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.module-item').forEach(i => i.classList.remove('active'));
             if (!isActive) item.classList.add('active');
         }
-
+        
         const observerOptions = { threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
