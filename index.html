@@ -66,23 +66,20 @@
     </label>
     <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden"></label>
 
-    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fdfbf9] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic text-stone-900">
-        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-400 text-xl"><i class="fas fa-times"></i></label>
-        <div class="mt-12">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic text-center">Espacio INYO ☯️</p>
-            <ul class="space-y-8 text-sm uppercase tracking-widest font-semibold italic">
-                <li><a href="#" class="block font-bold underline underline-offset-8">Masaje Japonés</a></li>
-                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition">HIIT Calistenia</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-stone-600 transition">Clases de Yoga</a></li>
-                <li><a href="https://www.holayoga.com.ar/" target="_blank" class="block hover:text-stone-600 transition">Coaching Online</a></li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-stone-600 transition">Zen Stretching</a></li>
-                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-stone-600 transition">Chamanismo</a></li>
-                <li>
-    <a href="https://inyodo.github.io/Qigong/" class="block hover:text-stone-900 transition text-stone-900 font-semibold">
-        Qigong <span class="text-[10px] text-stone-500 block font-normal lowercase tracking-widest mt-1">(Salud & Tai Chi)</span>
-    </a>
-</li>
-                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-stone-600 transition">Artes Marciales</a></li>
+    <nav id="side-menu">
+        <label for="menu-toggle" style="position:absolute; top:20px; right:20px; cursor:pointer; color:#ccc;"><i class="fas fa-times"></i></label>
+        <div class="side-menu-content">
+            <p>Espacio INYO ☯️</p>
+            <ul class="side-menu-links">
+                <li><a href="https://inyodo.github.io/masaje-japones-/">Masaje Japonés</a></li>
+                <li><a href="https://inyodo.github.io/hiit-calistenia/">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html">Clases de Yoga</a></li>
+                <li><a href="#" style="color:var(--oro-inyo); text-decoration: underline;">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html">Zen Stretching</a></li>
+                <li><a href="https://inyodo.github.io/Qigong/">Qigong (Salud)</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html">Artes Marciales</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/acupuntura.html">Acupuntura</a></li>
             </ul>
         </div>
     </nav>
@@ -388,26 +385,24 @@
             </div>
     </section>
 
-    <footer class="py-32 px-6 bg-white text-center border-t border-stone-100 italic text-stone-900 text-stone-900">
-        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900">Espacio INYO ☯️</h2>
-        <div class="grid md:grid-cols-2 gap-12 mb-20 italic">
-            <div class="flex flex-col items-center">
-                <img src="https://inyodo.github.io/espacio-inyo-web/imagen/IMG_4931.jpeg" alt="QR" class="w-32 h-32 mb-4 object-contain grayscale">
-                <p class="text-[10px] uppercase font-bold text-stone-400 tracking-widest italic underline underline-offset-4">WhatsApp: 11 7619-4825</p>
-            </div>
-            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left text-stone-900 text-stone-900">
-                <p class="text-xs font-bold uppercase tracking-widest mb-2">Sede Lanús Oeste Centro</p>
-                <p class="text-xs text-stone-500">Gdor. Carlos Tejedor 335.</p>
-            </div>
+    <footer>
+        <div class="footer-logo">Espacio INYO ☯️</div>
+        <div class="footer-nav">
+            <a href="https://inyodo.github.io/masaje-japones-/">Masaje Japonés</a>
+            <a href="https://inyodo.github.io/hiit-calistenia/">HIIT Calistenia</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html">Clases de Yoga</a>
+            <a href="#">Coaching Online</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html">Zen Stretching</a>
+            <a href="https://inyodo.github.io/Qigong/">Qigong (Salud)</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html">Artes Marciales</a>
+            <a href="https://inyodo.github.io/chamanismo/">Chamanismo</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/acupuntura.html">Acupuntura</a>
         </div>
-        <div class="border-t border-stone-200 pt-16 mt-16 text-stone-900 text-[10px] font-bold tracking-widest flex flex-wrap justify-center gap-x-12 gap-y-8 italic text-stone-900">
-            <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-stone-900 transition underline underline-offset-8">HIIT Calistenia</a>
-            <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-stone-900 transition underline underline-offset-8">Clases de Yoga</a>
-            <a href="https://www.holayoga.com.ar/" target="_blank" class="hover:text-stone-900 transition underline underline-offset-8">Coaching Online</a>
-            <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-stone-900 transition underline underline-offset-8">Zen Stretching</a>
-            <a href="https://inyodo.github.io/chamanismo/" class="hover:text-stone-900 transition underline underline-offset-8">Chamanismo</a>
-            <a href="https://inyodo.github.io/Qigong/" class="hover:text-stone-900 transition underline underline-offset-8">Qigong (Salud & Tai Chi)</a>
-            <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-stone-900 transition underline underline-offset-8">Artes Marciales</a>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+            <p style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px; color: var(--oro-inyo); margin-bottom: 10px;">Sede Lanús Oeste Centro</p>
+            <p style="font-size: 10px; color: #666;">Gdor. Carlos Tejedor 335, Lanús.</p>
+            <p style="margin-top: 20px; font-size: 10px; color: #999; letter-spacing: 1px;">© 2026 Espacio INYO | Transformación & Bienestar</p>
         </div>
     </footer>
 
