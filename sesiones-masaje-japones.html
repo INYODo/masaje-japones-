@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesiones de Masaje Japonés Anma & Shiatsu | Gastón Burgos - Espacio INYO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        h1, h2, h3, .brand-font { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        body { font-family: 'Lato', sans-serif; background-color: #fdfbf9; color: #2d2d2d; line-height: 1.8; }
+        .hero-masaje { 
+            background: linear-gradient(rgba(20, 20, 20, 0.75), rgba(20, 20, 20, 0.90)), 
+            url('https://inyodo.github.io/espacio-inyo-web/imagen/tecnicasautenticas.jpeg'); 
+            background-size: cover; background-position: center; min-height: 85vh;
+        }
+        #menu-toggle:checked ~ #side-menu { transform: translateX(0); }
+        #menu-toggle:checked ~ #menu-overlay { display: block; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* Estilo Botón Música Masaje */
+        .music-btn-zen {
+            position: fixed; bottom: 32px; left: 32px; width: 56px; height: 56px;
+            border-radius: 50%; background: #ffffff; border: 1px solid #e5e7eb;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; z-index: 50; transition: all 0.5s ease;
+        }
+        .music-btn-zen.active {
+            animation: breathe-zen 4s infinite ease-in-out;
+            border-color: #991b1b;
+            color: #991b1b;
+        }
+        @keyframes breathe-zen {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(153, 27, 27, 0.2); }
+            50% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(153, 27, 27, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Control Audio Zen -->
+    <div id="zen-control" class="music-btn-zen" onclick="toggleZenMusic()">
+        <i id="zen-icon" class="fas fa-torii-gate"></i>
+    </div>
+    <audio id="zen-audio" loop>
+        <source src="audio/japanesegarden.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Menú Hamburguesa -->
+    <input type="checkbox" id="menu-toggle" class="hidden">
+    <label for="menu-toggle" class="fixed top-6 left-6 z-50 cursor-pointer bg-white/10 backdrop-blur-md p-3 rounded-sm border border-white/20 text-white hover:bg-white hover:text-black transition">
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current mb-1.5 transition"></div>
+        <div class="w-6 h-0.5 bg-current transition"></div>
+    </label>
+    <label id="menu-overlay" for="menu-toggle" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden"></label>
+
+    <!-- Menú Lateral Desplegable -->
+    <nav id="side-menu" class="fixed top-0 left-0 h-full w-72 bg-[#fdfbf9] z-50 shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out p-12 flex flex-col border-r border-stone-100 italic text-stone-900">
+        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer text-stone-400 text-xl"><i class="fas fa-times"></i></label>
+        <div class="mt-12">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-8 font-bold border-b border-stone-100 pb-2 italic text-center">Espacio INYO ☯️</p>
+            <ul class="space-y-6 text-sm uppercase tracking-widest font-semibold italic">
+                <li><a href="https://inyodo.github.io/masaje-japones-/" class="block font-bold underline underline-offset-8">Masaje Japonés (Cursos)</a></li>
+                <li><a href="https://inyodo.github.io/hiit-calistenia/" class="block hover:text-stone-600 transition">HIIT Calistenia</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="block hover:text-stone-600 transition">Clases de Yoga</a></li>
+                <li><a href="https://inyodo.github.io/Coaching-/index.html" class="block hover:text-stone-600 transition">Coaching Online</a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="block hover:text-stone-600 transition">Zen Stretching</a></li>
+                <li><a href="https://inyodo.github.io/stretching-belengonzalez/" class="block hover:text-stone-600 transition">Stretching</a></li>
+                <li><a href="https://inyodo.github.io/Qigong/" class="block hover:text-stone-900 transition text-stone-900 font-semibold">Qigong <span class="text-[10px] text-stone-500 block font-normal lowercase tracking-widest mt-1">(Salud & Tai Chi)</span></a></li>
+                <li><a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="block hover:text-stone-600 transition">Artes Marciales</a></li>
+                <li><a href="https://inyodo.github.io/chamanismo/" class="block hover:text-stone-600 transition">Chamanismo</a></li>
+                <li><a href="https://inyodo.github.io/Reiki-Ryoho-Inscripciones/" class="block hover:text-stone-600 transition">Reiki Ryōhō</a></li>
+                <li><a href="https://inyodo.github.io/cuencos-tibetanos/" class="block hover:text-stone-600 transition">Cuencos Tibetanos</a></li>
+                <li><a href="https://inyodo.github.io/Acupuntura/index.html" class="block hover:text-stone-600 transition">Acupuntura</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Hero Portada -->
+    <header class="hero-masaje flex flex-col justify-center items-center text-center p-6 text-white relative">
+        <div class="fade-in visible text-center max-w-4xl mx-auto space-y-6">
+            <p class="text-stone-300 text-xs tracking-[0.8em] font-bold uppercase italic">Anma • Shiatsu Namikoshi • Consultorio</p>
+            <h1 class="text-5xl md:text-8xl font-bold tracking-tighter italic uppercase leading-tight text-white">Sesiones Terapéuticas</h1>
+            <div class="w-32 h-px bg-red-900 mx-auto my-4"></div>
+            <p class="text-sm md:text-xl text-stone-200 max-w-2xl mx-auto font-light italic leading-relaxed">
+                Reordenamiento Biológico Integral y Tratamiento Neuromuscular Profundo por Gastón Burgos.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-5 justify-center items-center pt-4">
+                <a href="#planes" class="w-full md:w-auto bg-red-900 hover:bg-red-800 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest transition shadow-2xl italic border border-red-700">
+                    Ver Opciones & Reserva
+                </a>
+                <a href="index.html" class="w-full md:w-auto bg-white/10 hover:bg-white hover:text-stone-900 text-white px-10 py-4 text-xs font-bold uppercase tracking-widest transition shadow-2xl italic border border-white/30">
+                    Ver Cursos y Formación
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección: ¿Cómo es una Sesión? Diagnosis y Tratamiento -->
+    <section class="py-24 px-6 bg-[#fdfbf9] text-stone-900 italic">
+        <div class="max-w-4xl mx-auto space-y-12">
+            
+            <div class="text-center space-y-3">
+                <p class="text-red-900 text-xs font-bold uppercase tracking-[0.4em]">Abordaje Terapéutico Tradicional</p>
+                <h2 class="text-3xl md:text-5xl font-bold uppercase">La Experiencia en Consultorio</h2>
+                <div class="w-20 h-px bg-red-900 mx-auto"></div>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 border border-stone-200 shadow-xl space-y-6 text-xs leading-relaxed text-stone-700">
+                <p class="text-stone-900 font-semibold border-l-4 border-red-900 pl-4 text-sm">
+                    Una sesión de Masaje Japonés no es un simple masaje relajante superficial. Es una intervención de Reordenamiento Biológico orientada a devolver el equilibrio natural al sistema nervioso, digestivo y neuromuscular.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8 pt-4">
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-bold text-stone-900 uppercase not-italic flex items-center gap-2">
+                            <i class="fas fa-yin-yang text-red-900"></i> Diagnosis de Hara (Ampuku)
+                        </h3>
+                        <p>
+                            Al inicio de la sesión realizamos la lectura palpatoria del abdomen (Hara). A través del Ampuku identificamos el estado de los órganos viscerales, tensiones diafragmáticas y bloqueos de energía vital.
+                        </p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-bold text-stone-900 uppercase not-italic flex items-center gap-2">
+                            <i class="fas fa-hand-holding-heart text-red-900"></i> Presión Digital & Anma
+                        </h3>
+                        <p>
+                            Combinamos las técnicas de amasamiento rítmico tradicional (Anma) con la presión digital sostenida del Shiatsu Namikoshi sobre canales de Vejiga y puntos neuromuscularmente clave.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-stone-50 p-6 border border-stone-200 rounded-sm space-y-2">
+                    <h4 class="text-xs font-bold uppercase text-stone-900 not-italic">Modalidad de Atención:</h4>
+                    <p class="text-stone-600">
+                        La sesión se realiza sobre futón tradicional japonés a nivel del suelo. Se trabaja con **ropa cómoda y liviana** (preferentemente de algodón), lo que permite maniobras precisas de estiramiento y manipulación articular sin fricción agresiva sobre la piel.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección Planes de Sesiones & Reserva por WhatsApp -->
+    <section id="planes" class="py-28 px-6 bg-stone-900 text-white italic">
+        <div class="max-w-5xl mx-auto space-y-16">
+            
+            <div class="text-center space-y-4">
+                <p class="text-red-400 text-xs font-bold uppercase tracking-[0.5em]">Atención Personalizada en Espacio INYO</p>
+                <h2 class="text-3xl md:text-5xl font-bold uppercase tracking-tight text-white">Planes de Tratamiento</h2>
+                <div class="w-24 h-px bg-red-800 mx-auto"></div>
+                <p class="text-xs text-stone-300 max-w-xl mx-auto">
+                    Seleccioná la opción que mejor responda a tu estado actual. Los turnos se coordinan individualmente con seña previa.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Plan 1: Sesión Individual -->
+                <div class="bg-stone-950 border border-stone-800 p-8 flex flex-col justify-between shadow-2xl relative">
+                    <div class="space-y-6">
+                        <div class="border-b border-stone-800 pb-4">
+                            <p class="text-xs font-bold text-red-400 uppercase tracking-widest">Tratamiento Puntual</p>
+                            <h3 class="text-2xl font-bold uppercase text-white mt-1">1 Sesión Terapéutica</h3>
+                            <p class="text-3xl font-bold text-white mt-4">$60.000.-</p>
+                            <p class="text-[10px] text-stone-400 mt-1">Masaje Japonés + Zen Stretching</p>
+                        </div>
+                        <ul class="space-y-3 text-xs text-stone-300">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>1 Sesión Terapéutica de Masaje Japonés (60 min).</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span><strong>+ 1 Clase de Reordenamiento Zen Stretching.</strong></span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Evaluación previa y diagnosis de Hara (Ampuku).</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Tratamiento Anma & Shiatsu Namikoshi integral.</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20consultar%20disponibilidad%20de%20turnos%20para%201%20Sesi%C3%B3n%20Terap%C3%A9utica%20($60.000)%20que%20incluye%201%20clase%20de%20Zen%20Stretching.%20Entiendo%20que%20debo%20abonar%20el%2050%25%20de%20se%C3%B1a%20para%20confirmar%20el%20d%C3%ADa%20y%20horario." target="_blank" class="block w-full text-center bg-red-900 hover:bg-red-800 text-white py-3 text-[10px] font-bold uppercase tracking-widest transition shadow-lg italic border border-red-700">
+                            Consultar Disponibilidad (Seña 50%)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plan 2: Pack Reordenamiento Biológico (Destacado) -->
+                <div class="bg-stone-950 border-2 border-red-700 p-8 flex flex-col justify-between shadow-2xl relative transform md:-translate-y-2">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-700 text-white px-4 py-1 text-[9px] font-bold uppercase tracking-widest">
+                        Recomendado Reordenamiento
+                    </div>
+                    <div class="space-y-6 pt-2">
+                        <div class="border-b border-stone-800 pb-4">
+                            <p class="text-xs font-bold text-red-400 uppercase tracking-widest">Acompañamiento Biológico</p>
+                            <h3 class="text-2xl font-bold uppercase text-white mt-1">Pack Reordenamiento Biológico</h3>
+                            <p class="text-3xl font-bold text-white mt-4">$70.000.-</p>
+                            <p class="text-[10px] text-stone-400 mt-1">1 Sesión Masaje + 2 Clases Zen</p>
+                        </div>
+                        <ul class="space-y-3 text-xs text-stone-300">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>1 Sesión Terapéutica de Masaje Japonés (60 min).</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span><strong>+ 2 Clases de Reordenamiento Zen Stretching.</strong></span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Tratamiento profundo de contracturas y postura.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Mayor integración biomecánica y regulación del SNA.</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20consultar%20disponibilidad%20de%20turnos%20para%20el%20Pack%20Reordenamiento%20Biol%C3%B3gico%20($70.000)%20que%20incluye%201%20sesi%C3%B3n%20de%20Masaje%20Japon%C3%A9s%20%2B%202%20clases%20de%20Zen%20Stretching.%20Entiendo%20que%20debo%20abonar%20el%2050%25%20de%20se%C3%B1a%20para%20confirmar%20el%20d%C3%ADa%20y%20horario." target="_blank" class="block w-full text-center bg-red-600 hover:bg-red-700 text-white py-3 text-[10px] font-bold uppercase tracking-widest transition shadow-lg italic border border-red-500">
+                            Consultar Disponibilidad (Seña 50%)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Plan 3: Pack Mantenimiento Zen -->
+                <div class="bg-stone-950 border border-stone-800 p-8 flex flex-col justify-between shadow-2xl relative">
+                    <div class="space-y-6">
+                        <div class="border-b border-stone-800 pb-4">
+                            <p class="text-xs font-bold text-red-400 uppercase tracking-widest">Mantenimiento Mensual</p>
+                            <h3 class="text-2xl font-bold uppercase text-white mt-1">Pack Mantenimiento Zen</h3>
+                            <p class="text-3xl font-bold text-white mt-4">$140.000.-</p>
+                            <p class="text-[10px] text-stone-400 mt-1">2 Sesiones Mensuales + 3 Clases Zen</p>
+                        </div>
+                        <ul class="space-y-3 text-xs text-stone-300">
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span><strong>2 Sesiones Mensuales de Masaje Japonés.</strong></span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span><strong>+ 3 Clases de Zen Stretching.</strong></span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Plan de mantenimiento preventivo y continuo.</span></li>
+                            <li class="flex items-start gap-2"><i class="fas fa-check text-red-500 mt-1"></i> <span>Prioridad en la agenda de turnos.</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Quisiera%20consultar%20disponibilidad%20de%20turnos%20para%20el%20Pack%20Mantenimiento%20Zen%20($140.000)%20que%20incluye%202%20sesiones%20mensuales%20%2B%203%20clases%20de%20Zen%20Stretching.%20Entiendo%20que%20debo%20abonar%20el%2050%25%20de%20se%C3%B1a%20para%20confirmar%20el%20d%C3%ADa%20y%20horario." target="_blank" class="block w-full text-center bg-red-900 hover:bg-red-800 text-white py-3 text-[10px] font-bold uppercase tracking-widest transition shadow-lg italic border border-red-700">
+                            Consultar Disponibilidad (Seña 50%)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Recuadro Explicativo del Protocolo de Reserva -->
+            <div class="bg-stone-950 p-6 md:p-8 border-l-4 border-red-800 space-y-3 text-xs text-stone-300 leading-relaxed max-w-3xl mx-auto">
+                <h4 class="text-sm font-bold text-red-400 uppercase tracking-widest not-italic">Condiciones & Reserva de Turnos:</h4>
+                <p>
+                    • Los turnos son asignados de forma strictly individual en nuestro consultorio de Espacio INYO (Lanús Oeste Centro).
+                </p>
+                <p>
+                    • Al enviar el mensaje por WhatsApp, coordinaremos amablemente el día y horario que mejor te convenga según agenda disponible.
+                </p>
+                <p>
+                    • Para dejar asentada y confirmada la reserva en la agenda se requiere abonar la **seña del 50%**. El saldo restante se cancela el día de la sesión.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Institucional Ecosistema INYO -->
+    <footer class="py-32 px-6 bg-white text-center border-t border-stone-100 italic text-stone-900">
+        <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900">Espacio INYO ☯️</h2>
+        <div class="grid md:grid-cols-2 gap-12 mb-20 italic">
+            <div class="flex flex-col items-center">
+                <img src="imagenes/IMG_4931.png" alt="QR WhatsApp Espacio INYO" class="w-32 h-32 mb-4 object-contain grayscale">
+                <p class="text-[10px] uppercase font-bold text-stone-400 tracking-widest italic underline underline-offset-4">WhatsApp: 11 7619-4825</p>
+            </div>
+            <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left text-stone-900">
+                <p class="text-xs font-bold uppercase tracking-widest mb-2">Sede Lanús Oeste Centro</p>
+                <p class="text-xs text-stone-500">Gdor. Carlos Tejedor 335, Lanús.</p>
+            </div>
+        </div>
+        <div class="border-t border-stone-200 pt-16 mt-16 text-stone-900 text-[10px] font-bold tracking-widest flex flex-wrap justify-center gap-x-12 gap-y-8 italic">
+            <a href="https://inyodo.github.io/masaje-japones-/" class="hover:text-stone-900 transition underline underline-offset-8 font-bold">Masaje Japonés</a>
+            <a href="https://inyodo.github.io/hiit-calistenia/" class="hover:text-stone-900 transition underline underline-offset-8">HIIT Calistenia</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/yoga.html" class="hover:text-stone-900 transition underline underline-offset-8">Clases de Yoga</a>
+            <a href="https://inyodo.github.io/Coaching-/index.html" class="hover:text-stone-900 transition underline underline-offset-8">Coaching Online</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/zen-stretching.html" class="hover:text-stone-900 transition underline underline-offset-8">Zen Stretching</a>
+            <a href="https://inyodo.github.io/stretching-belengonzalez/" class="hover:text-stone-900 transition underline underline-offset-8">Stretching</a>
+            <a href="https://inyodo.github.io/Qigong/" class="hover:text-stone-900 transition underline underline-offset-8">Qigong (Salud)</a>
+            <a href="https://inyodo.github.io/espacio-inyo-web/artes-marciales.html" class="hover:text-stone-900 transition underline underline-offset-8">Artes Marciales</a>
+            <a href="https://inyodo.github.io/chamanismo/" class="hover:text-stone-900 transition underline underline-offset-8">Chamanismo</a>
+            <a href="https://inyodo.github.io/Reiki-Ryoho-Inscripciones/" class="hover:text-stone-900 transition underline underline-offset-8">Reiki Ryōhō</a>
+            <a href="https://inyodo.github.io/cuencos-tibetanos/" class="hover:text-stone-900 transition underline underline-offset-8">Cuencos Tibetanos</a>
+            <a href="https://inyodo.github.io/Acupuntura/index.html" class="hover:text-stone-900 transition underline underline-offset-8">Acupuntura</a>
+        </div>
+        <p class="mt-20 text-[9px] text-stone-300 uppercase tracking-widest font-bold italic">© 2026 Espacio INYO | Tradición & Bienestar</p>
+    </footer>
+
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/541176194825" target="_blank" class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-all duration-300 z-50" title="Consultar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts JavaScript -->
+    <script>
+        function toggleZenMusic() {
+            const audio = document.getElementById('zen-audio');
+            const btn = document.getElementById('zen-control');
+            const icon = document.getElementById('zen-icon');
+            if (audio.paused) {
+                audio.play();
+                btn.classList.add('active');
+                icon.className = "fas fa-spa";
+            } else {
+                audio.pause();
+                btn.classList.remove('active');
+                icon.className = "fas fa-torii-gate";
+            }
+        }
+        
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
