@@ -20,6 +20,11 @@
         .fade-in { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
+        /* Estilos Acordeón Preguntas Frecuentes */
+        .accordion-body { max-height: 0; overflow: hidden; transition: all 0.5s cubic-bezier(0, 1, 0, 1); }
+        .accordion-item.active .accordion-body { max-height: 1200px; padding-bottom: 1.5rem; }
+        .accordion-item.active .arrow-icon { transform: rotate(180deg); color: #991b1b; }
+
         /* Estilo Botón Música Masaje */
         .music-btn-zen {
             position: fixed; bottom: 32px; left: 32px; width: 56px; height: 56px;
@@ -252,6 +257,196 @@
         </div>
     </section>
 
+    <!-- Sección Preguntas Frecuentes FAQ: Shiatsu Namikoshi -->
+    <section id="faq" class="py-24 px-6 bg-[#fdfbf9] border-t border-stone-200 italic">
+        <div class="max-w-4xl mx-auto space-y-12">
+            
+            <div class="text-center space-y-4">
+                <p class="text-red-900 text-xs font-bold uppercase tracking-[0.4em]">Claridad & Transparencia Terapéutica</p>
+                <h2 class="text-3xl md:text-5xl font-bold uppercase text-stone-900">Guía Completa de Preguntas Frecuentes (FAQ)</h2>
+                <div class="w-20 h-px bg-red-900 mx-auto"></div>
+                <p class="text-stone-600 text-xs md:text-sm max-w-2xl mx-auto font-light leading-relaxed">
+                    Bienvenido/a a nuestro espacio de bienestar. El Shiatsu Namikoshi es una terapia corporal japonesa diseñada para restablecer el equilibrio natural de tu cuerpo, aliviar dolores y devolverte la vitalidad. A continuación, respondemos de forma clara a todas tus dudas antes de iniciar tu tratamiento.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- FAQ 1 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-hand-holding-medical text-red-900"></i> ¿Qué es el Shiatsu Namikoshi?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        El <strong>Shiatsu Namikoshi</strong> es un método de terapia manual originario de Japón que utiliza exclusivamente las <strong>palmas de las manos y los pulgares</strong> para aplicar presión sobre puntos específicos del cuerpo. A diferencia de otros estilos, el Namikoshi se enfoca en la <strong>anatomía y fisiología occidental</strong>, buscando estimular la capacidad de autocuración del organismo, regular el sistema nervioso y aliviar tensiones musculares sin seguir los canales de energía o meridianos de la medicina china.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-compress-arrows-alt text-red-900"></i> ¿En qué se diferencia del Shiatsu tradicional o de otros masajes?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed space-y-2">
+                        <p>• <strong>Sin herramientas:</strong> No se utilizan aceites, cremas, codos, rodillas ni instrumentos; solo la sensibilidad de los pulgares y las palmas del terapeuta.</p>
+                        <p>• <strong>Base científica:</strong> Se centra en el sistema músculo-esquelético y el sistema nervioso autónomo.</p>
+                        <p>• <strong>Con ropa:</strong> Se recibe normalmente sobre un futón en el suelo o camilla, vistiendo ropa cómoda y ligera. No requiere desvestirse.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-heartbeat text-red-900"></i> ¿Cuáles son sus principales beneficios?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed space-y-2">
+                        <p>• <strong>Alivia el dolor</strong> muscular, articular, contracturas y dolores de espalda (ciática, lumbalgia).</p>
+                        <p>• <strong>Reduce el estrés</strong>, la ansiedad y el insomnio al equilibrar el sistema nervioso.</p>
+                        <p>• <strong>Mejora la circulación</strong> sanguínea y la eliminación de toxinas por vía linfática.</p>
+                        <p>• <strong>Flexibiliza la piel</strong> y mejora la movilidad del tejido muscular.</p>
+                        <p>• <strong>Optimiza el sistema inmunológico</strong> y ayuda a prevenir enfermedades.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-spa text-red-900"></i> ¿La presión del Shiatsu Namikoshi es dolorosa?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        La presión debe ser <strong>firme pero placentera</strong>. El terapeuta ajustará la intensidad según tu tolerancia y contextura física. En Shiatsu existe el concepto de <strong>"dolor placentero"</strong> (<em>ita-goko</em>): una presión que, aunque profunda, libera una tensión acumulada y genera un alivio inmediato en lugar de una incomodidad real.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-tshirt text-red-900"></i> ¿Cómo debo ir vestido a una sesión?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        Debes usar <strong>ropa cómoda, suelta y de tejidos naturales</strong> (como el algodón). Se recomiendan pantalones deportivos, leggings y una camiseta o polera de manga larga. Evita prendas con botones grandes, cierres, costuras muy gruesas o joyas que puedan interferir con las presiones del terapeuta.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-utensils text-red-900"></i> ¿Qué se recomienda comer o beber antes de asistir?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        Se aconseja <strong>no comer abundantemente al menos 1 o 2 horas antes</strong> de tu cita. El Shiatsu Namikoshi incluye presiones en el abdomen (Ampuku) que estimulan directamente los órganos internos; si estás en medio de una digestión pesada, podrías sentir incomodidad. Si tienes mucha hambre, consume algo muy ligero (como una fruta o un té) e <strong>hidrátate bien con agua</strong> antes y después de la sesión.
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-clock text-red-900"></i> ¿Cuánto dura una sesión típica?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        Una sesión estándar dura aproximadamente entre <strong>50 y 60 minutos</strong>, tiempo en el cual se realiza un tratamiento generalizado por todo el cuerpo para equilibrar el organismo de forma integral.
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-calendar-alt text-red-900"></i> ¿Cada cuánto tiempo es recomendable recibir el tratamiento?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed space-y-2">
+                        <p>• <strong>Casos crónicos o dolores agudos:</strong> Se recomiendan <strong>1 o 2 sesiones por semana</strong> al principio. Una vez que los síntomas disminuyen, las sesiones se van espaciando.</p>
+                        <p>• <strong>Mantenimiento y prevención:</strong> Recibir una sesión <strong>cada 15 o 30 días</strong> es ideal para mantener el sistema nervioso equilibrado, prevenir contracturas y vaciar el estrés acumulado.</p>
+                        <p>• <strong>Bienestar general:</strong> Puedes asistir de forma esporádica cuando sientas que tu cuerpo necesita un "reseteo" físico y mental.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-hourglass-half text-red-900"></i> ¿Cuánto dura el efecto de una sesión de Shiatsu?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        El efecto inmediato de relajación profunda y alivio muscular suele durar entre <strong>48 y 72 horas</strong>, período en el cual el cuerpo sigue procesando los estímulos. Sin embargo, los beneficios acumulativos (como una mejor postura, menor nivel de estrés y un sistema inmune más fuerte) pueden prolongarse por <strong>varias semanas o volverse permanentes</strong> si mantienes un tratamiento continuo y hábitos saludables.
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-sync-alt text-red-900"></i> ¿Qué puedo esperar después de mi primera sesión? (Crisis de sanación)
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed">
+                        Es completamente normal experimentar lo que llamamos una "crisis de sanación" o ligeras agujetas al día siguiente. Al reactivar la circulación y liberar toxinas acumuladas, podrías sentir <strong>cansancio muscular, una leve sensación de cansancio general o sueño profundo</strong>. Esto es una señal excelente de que tu cuerpo está respondiendo al tratamiento y autoregulándose; desaparecerá en menos de 48 horas dando paso a una gran vitalidad.
+                    </div>
+                </div>
+
+                <!-- FAQ 11 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-user-shield text-red-900"></i> ¿Es apto para embarazadas o adultos mayores?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed space-y-2">
+                        <p>• <strong>Embarazadas:</strong> Sí, pero con adaptaciones. Se puede realizar a partir del segundo trimestre de gestación (cuarto mes), trabajando de lado o sentada, evitando zonas de presión contraindicadas en el abdomen y tobillos. Siempre se solicita aprobación médica previa.</p>
+                        <p>• <strong>Adultos mayores:</strong> Es un tratamiento fantástico para ellos, ya que se aplica una presión mucho más suave y progresiva adaptada a la fragilidad capilar u ósea, ayudando a mejorar la movilidad articular y aliviar dolores crónicos.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 12 -->
+                <div class="accordion-item border border-stone-200 bg-white p-6 rounded-sm cursor-pointer shadow-sm hover:shadow-md transition" onclick="toggleAccordion(this)">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-sm md:text-base font-bold text-stone-800 italic flex items-center gap-3">
+                            <i class="fas fa-exclamation-triangle text-red-900"></i> ¿Existen contraindicaciones absolutas?
+                        </h3>
+                        <i class="fas fa-chevron-down arrow-icon text-stone-400 transition-transform"></i>
+                    </div>
+                    <div class="accordion-body text-xs md:text-sm text-stone-600 italic mt-4 leading-relaxed space-y-2">
+                        <p>Sí, el Shiatsu Namikoshi no debe aplicarse bajo ninguna circunstancia en los siguientes casos:</p>
+                        <p>• Fiebre alta o enfermedades infecciosas agudas.</p>
+                        <p>• Heridas abiertas, quemaduras, inflamaciones agudas o fracturas recientes.</p>
+                        <p>• Infecciones graves de la piel o enfermedades contagiosas cutáneas.</p>
+                        <p>• Casos de osteoporosis severa.</p>
+                        <p>• Úlceras gástricas o duodenales agudas (se evita estrictamente la zona abdominal).</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- Footer Institucional Ecosistema INYO -->
     <footer class="py-32 px-6 bg-white text-center border-t border-stone-100 italic text-stone-900">
         <h2 class="text-4xl mb-16 italic tracking-tighter uppercase font-bold text-stone-900">Espacio INYO ☯️</h2>
@@ -302,6 +497,12 @@
                 btn.classList.remove('active');
                 icon.className = "fas fa-torii-gate";
             }
+        }
+
+        // Control Acordeón FAQ
+        function toggleAccordion(element) {
+            const item = element.closest('.accordion-item') || element;
+            item.classList.toggle('active');
         }
         
         const observerOptions = { threshold: 0.1 };
