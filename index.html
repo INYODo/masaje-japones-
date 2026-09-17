@@ -48,6 +48,26 @@
 </head>
 <body class="antialiased">
 
+    <!-- BADGE FLOTANTE DE PRÓXIMA CLASE DE MASAJE JAPONÉS (NO INVASIVO) -->
+    <div id="floatingMasajeBadge" class="fixed bottom-28 left-6 z-50 max-w-[290px] sm:max-w-xs bg-stone-900/95 backdrop-blur-md text-white p-5 rounded-2xl shadow-2xl border border-red-900/80 transition-all duration-500 transform hover:scale-[1.02]">
+        <button onclick="document.getElementById('floatingMasajeBadge').style.display='none'" class="absolute top-3 right-3 text-stone-400 hover:text-white transition-colors text-xs p-1" title="Cerrar">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <div class="flex items-center gap-2 mb-2">
+            <span class="w-2 h-2 bg-red-500 rounded-full animate-ping"></span>
+            <span class="text-[10px] uppercase tracking-[0.25em] text-red-400 font-bold italic">Próximo Taller Presencial</span>
+        </div>
+        <h4 class="brand-font text-lg text-white font-bold mb-1 leading-snug">Masaje Japonés</h4>
+        <div class="space-y-1 text-xs text-stone-300 italic mb-4 border-l-2 border-red-700 pl-3">
+            <p><strong class="text-white not-italic">Sábado 10 de Octubre</strong></p>
+            <p><span class="text-stone-400">Horario:</span> 15:00 a 19:00 hs</p>
+            <p class="text-[11px] text-stone-300 mt-1 not-italic">🌿 Decúbito prono, maniobras en columna y abdomen.</p>
+        </div>
+        <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Deseo%20reservar%20mi%20lugar%20para%20la%20pr%C3%B3xima%20clase%20de%20Masaje%20Japon%C3%A9s%20(S%C3%A1bado%2010%20de%20Octubre%2015%20a%2019hs%20-%20Dec%C3%BAbito%20Prono%2C%20Columna%20y%20Abdomen)." target="_blank" class="block w-full text-center bg-red-900 text-white py-2.5 px-4 rounded-xl text-[10px] uppercase font-bold tracking-widest hover:bg-red-800 transition-colors duration-300 italic shadow-sm border border-red-700">
+            Reservar mi lugar
+        </a>
+    </div>
+
     <!-- Control Audio Zen -->
     <div id="zen-control" class="music-btn-zen" onclick="toggleZenMusic()">
         <i id="zen-icon" class="fas fa-torii-gate"></i>
@@ -87,7 +107,7 @@
         </div>
     </nav>
 
-    <!-- Header Hero Portada (Ruta Restaurada con .jpeg de GitHub) -->
+    <!-- Header Hero Portada -->
     <header class="hero-masaje flex flex-col justify-center items-center text-center p-6 text-white relative">
         <div class="fade-in visible text-center max-w-4xl mx-auto space-y-6">
             <p class="text-stone-300 text-xs tracking-[0.8em] font-bold uppercase italic">Anma • Shiatsu • Tradición</p>
@@ -107,38 +127,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Banner Próximo Módulo Destacado -->
-    <div class="bg-red-950 py-6 border-y border-red-900 shadow-2xl relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent"></div>
-        
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-full border border-red-500 flex items-center justify-center text-red-500 animate-pulse">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <div>
-                    <h3 class="font-oswald text-white text-xl uppercase italic tracking-tighter leading-none">
-                        Próxima Clase: Módulo 4 (Parte 2)
-                    </h3>
-                    <p class="font-lato text-red-400 text-[10px] uppercase tracking-widest font-bold mt-1">
-                        Sábado 5 de Septiembre | 13:00 a 19:00 hs — Cupos Limitados
-                    </p>
-                </div>
-            </div>
-            
-            <div class="flex items-center gap-6">
-                <div class="hidden lg:block text-right">
-                    <p class="text-white/40 text-[9px] uppercase tracking-widest italic">Formación Profesional</p>
-                    <p class="text-white font-bold italic">Espacio INYO</p>
-                </div>
-                <a href="https://wa.me/541176194825?text=Hola%20Gast%C3%B3n!%20%F0%9F%91%8B%20Deseo%20reservar%20mi%20lugar%20para%20el%20M%C3%B3dulo%204%20Parte%202%20(S%C3%A1bado%205%20de%20Septiembre%2013%20a%2019hs).%20Acepto%20las%20condiciones%20de%20reserva%20abonando%20el%2050%25%20de%20se%C3%B1a%20($80.000)." 
-                   class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-[10px] font-bold uppercase tracking-widest transition-all shadow-lg hover:scale-105 active:scale-95 italic border border-red-500">
-                    Asegurar mi lugar
-                </a>
-            </div>
-        </div>
-    </div>
 
     <!-- Sección Cursos: Metodología y Dinámica de Cursada -->
     <section id="cursos" class="py-28 px-6 bg-stone-900 text-white italic relative">
