@@ -12,11 +12,11 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-kanji { font-family: 'Noto Serif JP', serif; }
     
-    /* CONFIGURACIÓN DE IMPRESIÓN ESTRICTA A4 (EXACTAMENTE 4 PÁGINAS SIN HOJAS INTERMEDIAS EN BLANCO) */
+    /* CONFIGURACIÓN DE IMPRESIÓN RIGUROSA (EXACTAMENTE 4 PÁGINAS A4) */
     @media print {
       @page {
         size: A4 portrait;
-        margin: 8mm !important;
+        margin: 10mm !important;
       }
       html, body {
         width: 100% !important;
@@ -28,22 +28,29 @@
         font-size: 11px !important;
       }
       .no-print { display: none !important; }
+      
+      /* ANULACIÓN DE MÁRGENES DE TAILWIND EN IMPRESIÓN */
       main {
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
       }
+      main > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+      }
+
       .carilla { 
         width: 100% !important;
-        height: 255mm !important;
-        max-height: 255mm !important;
-        padding: 4mm 6mm !important;
+        height: 250mm !important;
+        max-height: 250mm !important;
+        padding: 0 !important;
         box-sizing: border-box !important;
         page-break-after: always !important; 
         break-after: page !important; 
         page-break-inside: avoid !important;
         break-inside: avoid !important;
-        overflow: hidden !important; /* Previene dobles saltos de página por desbordamiento de 1px */
+        overflow: hidden !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
@@ -53,11 +60,11 @@
         margin: 0 !important;
       }
       section:last-of-type {
-        page-break-after: avoid !important;
-        break-after: avoid !important;
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
       .print-full-img {
-        max-height: 175mm !important;
+        max-height: 165mm !important;
         width: auto !important;
         max-width: 100% !important;
         object-fit: contain !important;
@@ -106,7 +113,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[550px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
+        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[500px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
@@ -195,7 +202,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[550px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
+        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[500px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
