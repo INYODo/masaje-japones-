@@ -12,11 +12,11 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-kanji { font-family: 'Noto Serif JP', serif; }
     
-    /* REGLAS ESPECÍFICAS PARA IMPRESIÓN AMPLIADA Y PROPORCIONADA EN 2 CARILLAS A4 */
+    /* REGLAS ESPECÍFICAS Y RÍGIDAS PARA IMPRESIÓN EXACTA EN 2 HOJAS A4 */
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0.7cm;
+        margin: 0.8cm;
       }
       .no-print { display: none !important; }
       body { 
@@ -24,7 +24,7 @@
         color: black !important; 
         padding: 0 !important; 
         margin: 0 !important;
-        font-size: 12px !important;
+        font-size: 11px !important;
       }
       main {
         margin: 0 !important;
@@ -37,11 +37,13 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         margin: 0 !important; 
-        padding: 0.3cm !important; 
+        padding: 0 !important; 
         box-sizing: border-box !important;
         border: none !important;
         box-shadow: none !important;
-        min-height: 98vh !important;
+        height: 275mm !important;
+        max-height: 275mm !important;
+        overflow: hidden !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: space-between !important;
@@ -50,25 +52,45 @@
         page-break-before: always !important; 
         break-before: page !important; 
       }
-      .print-grid {
-        display: grid !important;
-        grid-template-columns: 5.5fr 6.5fr !important;
-        gap: 1.2rem !important;
-        align-items: start !important;
+      /* FORZADO DE 2 COLUMNAS PARALELAS EN IMPRESIÓN */
+      .flex-print-row {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+        flex: 1 !important;
+      }
+      .col-print-left {
+        width: 44% !important;
+        flex: 0 0 44% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+      .col-print-right {
+        width: 53% !important;
+        flex: 0 0 53% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
       }
       .print-img {
-        max-height: 25cm !important;
+        max-height: 205mm !important;
         width: 100% !important;
         object-fit: contain !important;
         margin: 0 auto !important;
       }
       .print-compact-table td, .print-compact-table th {
-        padding: 4px 6px !important;
-        font-size: 11px !important;
+        padding: 3px 5px !important;
+        font-size: 10.5px !important;
+        line-height: 1.15 !important;
       }
       .print-compact-text {
-        font-size: 11.5px !important;
-        line-height: 1.35 !important;
+        font-size: 10.5px !important;
+        line-height: 1.3 !important;
       }
     }
   </style>
@@ -97,72 +119,72 @@
     <section class="carilla carilla-1 bg-white p-6 md:p-8 shadow-sm rounded-xl border border-stone-200">
       
       <!-- ENCABEZADO CARILLA 1 -->
-      <header class="border-b-2 border-stone-800 pb-3 mb-5 flex justify-between items-start">
+      <header class="border-b-2 border-stone-800 pb-2 mb-3 flex justify-between items-start">
         <div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-amber-800 block">Espacio INYO — Guía de Estudio Anma & Shiatsu</span>
-          <h1 class="text-2xl md:text-3xl font-bold text-stone-900 font-kanji mt-0.5">Puntos Shu de la Espalda (背俞穴)</h1>
-          <p class="text-xs md:text-sm text-stone-600 mt-0.5">Carilla 1: Cartografía Anatómica, Vertebración y Ubicación del Canal de Vejiga</p>
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-800 block">Espacio INYO — Guía de Estudio Anma & Shiatsu</span>
+          <h1 class="text-xl md:text-2xl font-bold text-stone-900 font-kanji">Puntos Shu de la Espalda (背俞穴)</h1>
+          <p class="text-xs text-stone-600">Carilla 1: Cartografía Anatómica, Vertebración y Ubicación del Canal de Vejiga</p>
         </div>
         <div class="text-right">
-          <span class="text-xl md:text-2xl font-bold font-kanji text-stone-400">膀胱経</span>
-          <span class="block text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Carilla 1 / 2</span>
+          <span class="text-lg md:text-xl font-bold font-kanji text-stone-400">膀胱経</span>
+          <span class="block text-[9px] text-stone-500 uppercase tracking-wider font-semibold">Carilla 1 / 2</span>
         </div>
       </header>
 
-      <!-- CONTENIDO DE LA CARILLA 1 (FORZADO EN 2 COLUMNAS AMPLIADAS AL IMPRIMIR) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 print-grid gap-6 items-start my-auto">
+      <!-- CONTENIDO DE LA CARILLA 1 (FILA FLEXIBLE GARANTIZADA EN 2 COLUMNAS) -->
+      <div class="flex flex-col md:flex-row flex-print-row gap-6 items-center my-auto">
         
         <!-- IMAGEN LÁMINA 1 -->
-        <div class="md:col-span-5 bg-stone-50 p-3 rounded-lg border border-stone-200 text-center flex flex-col justify-center items-center">
-          <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-img max-h-[620px] w-full object-contain rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x650?text=imagenes/image_16.jpg'">
-          <span class="text-xs text-stone-500 font-medium mt-2 block">Lámina 1: Disposición Vertebral y Canal de Vejiga</span>
+        <div class="w-full md:w-[44%] col-print-left bg-stone-50 p-2 rounded-lg border border-stone-200 text-center">
+          <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-img max-h-[580px] w-full object-contain rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x650?text=imagenes/image_16.jpg'">
+          <span class="text-[10px] text-stone-500 font-medium mt-1.5 block">Lámina 1: Disposición Vertebral y Canal de Vejiga</span>
         </div>
 
         <!-- TABLA Y GUÍA PALPATORIA -->
-        <div class="md:col-span-7 space-y-4 text-xs md:text-sm">
+        <div class="w-full md:w-[53%] col-print-right space-y-3 text-xs md:text-sm">
           
-          <div class="bg-stone-900 text-stone-100 p-3.5 rounded-lg shadow-sm">
-            <h3 class="font-bold text-amber-400 text-sm md:text-base font-kanji mb-1">Puntos Shu / Yu (背俞穴)</h3>
-            <p class="text-xs md:text-sm text-stone-300 leading-relaxed">Puntos de asentamiento situados a 1,5 <em>cun</em> de la línea media posterior. Comunican directamente con la energía de los Zāng-Fǔ.</p>
+          <div class="bg-stone-900 text-stone-100 p-3 rounded-lg shadow-sm">
+            <h3 class="font-bold text-amber-400 text-xs md:text-sm font-kanji mb-0.5">Puntos Shu / Yu (背俞穴)</h3>
+            <p class="text-[11px] md:text-xs text-stone-300 leading-snug">Puntos de asentamiento a 1,5 <em>cun</em> de la línea media posterior. Comunican directamente con la energía de los Zāng-Fǔ.</p>
           </div>
 
           <div class="border border-stone-200 rounded-lg overflow-hidden shadow-sm">
             <table class="w-full text-left border-collapse print-compact-table">
               <thead>
-                <tr class="bg-stone-100 text-stone-900 font-bold border-b border-stone-200 text-xs md:text-sm">
-                  <th class="p-2 md:p-2.5 border-r border-stone-200">Vértebra</th>
-                  <th class="p-2 md:p-2.5 border-r border-stone-200">Punto</th>
-                  <th class="p-2 md:p-2.5">Órgano / Resonador</th>
+                <tr class="bg-stone-100 text-stone-900 font-bold border-b border-stone-200 text-xs">
+                  <th class="p-1.5 border-r border-stone-200">Vértebra</th>
+                  <th class="p-1.5 border-r border-stone-200">Punto</th>
+                  <th class="p-1.5">Órgano / Resonador</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-stone-200 text-xs md:text-sm">
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 3</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">13 V</td><td class="p-1.5 md:p-2">Pulmón (Fei Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 4</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">14 V</td><td class="p-1.5 md:p-2">Pericardio / Maestro Corazón</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 5</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">15 V</td><td class="p-1.5 md:p-2">Corazón (Xin Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 6</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">16 V</td><td class="p-1.5 md:p-2">Du Mai (Du Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 7</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">17 V</td><td class="p-1.5 md:p-2">Diafragma / Reunión de Sangre</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 9</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">18 V</td><td class="p-1.5 md:p-2">Hígado (Gan Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 10</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">19 V</td><td class="p-1.5 md:p-2">Vesícula Biliar (Dan Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 11</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">20 V</td><td class="p-1.5 md:p-2">Bazo (Pi Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">D 12</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">21 V</td><td class="p-1.5 md:p-2">Estómago (Wei Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">L 1</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">22 V</td><td class="p-1.5 md:p-2">Triple Recalentador (San Jiao)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">L 2</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">23 V</td><td class="p-1.5 md:p-2">Riñón (Shen Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">L 3</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">24 V</td><td class="p-1.5 md:p-2">Mar del Qi (Qi Hai Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">L 4</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">25 V</td><td class="p-1.5 md:p-2">Intestino Grueso (Da Chang Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">L 5</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">26 V</td><td class="p-1.5 md:p-2">Guan Yuan (Guan Yuan Shu)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">S 1</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">27 V</td><td class="p-1.5 md:p-2">Intestino Delgado (Xiao Chang)</td></tr>
-                <tr><td class="p-1.5 md:p-2 border-r font-semibold">S 2</td><td class="p-1.5 md:p-2 border-r font-bold text-amber-900">28 V</td><td class="p-1.5 md:p-2">Vejiga (Pang Guang Shu)</td></tr>
+              <tbody class="divide-y divide-stone-200 text-xs">
+                <tr><td class="p-1 border-r font-semibold">D 3</td><td class="p-1 border-r font-bold text-amber-900">13 V</td><td class="p-1">Pulmón (Fei Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 4</td><td class="p-1 border-r font-bold text-amber-900">14 V</td><td class="p-1">Pericardio / Maestro Corazón</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 5</td><td class="p-1 border-r font-bold text-amber-900">15 V</td><td class="p-1">Corazón (Xin Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 6</td><td class="p-1 border-r font-bold text-amber-900">16 V</td><td class="p-1">Du Mai (Du Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 7</td><td class="p-1 border-r font-bold text-amber-900">17 V</td><td class="p-1">Diafragma / Reunión de Sangre</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 9</td><td class="p-1 border-r font-bold text-amber-900">18 V</td><td class="p-1">Hígado (Gan Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 10</td><td class="p-1 border-r font-bold text-amber-900">19 V</td><td class="p-1">Vesícula Biliar (Dan Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 11</td><td class="p-1 border-r font-bold text-amber-900">20 V</td><td class="p-1">Bazo (Pi Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">D 12</td><td class="p-1 border-r font-bold text-amber-900">21 V</td><td class="p-1">Estómago (Wei Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">L 1</td><td class="p-1 border-r font-bold text-amber-900">22 V</td><td class="p-1">Triple Recalentador (San Jiao)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">L 2</td><td class="p-1 border-r font-bold text-amber-900">23 V</td><td class="p-1">Riñón (Shen Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">L 3</td><td class="p-1 border-r font-bold text-amber-900">24 V</td><td class="p-1">Mar del Qi (Qi Hai Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">L 4</td><td class="p-1 border-r font-bold text-amber-900">25 V</td><td class="p-1">Intestino Grueso (Da Chang Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">L 5</td><td class="p-1 border-r font-bold text-amber-900">26 V</td><td class="p-1">Guan Yuan (Guan Yuan Shu)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">S 1</td><td class="p-1 border-r font-bold text-amber-900">27 V</td><td class="p-1">Intestino Delgado (Xiao Chang)</td></tr>
+                <tr><td class="p-1 border-r font-semibold">S 2</td><td class="p-1 border-r font-bold text-amber-900">28 V</td><td class="p-1">Vejiga (Pang Guang Shu)</td></tr>
               </tbody>
             </table>
           </div>
 
-          <div class="p-3.5 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
-            <span class="font-bold text-amber-900 block mb-1 text-xs md:text-sm">📍 Guía de Localización Anatómica Rápida:</span>
-            <ul class="space-y-1 text-xs md:text-sm text-amber-950 leading-snug">
-              <li>• <strong>C7:</strong> Apófisis espinosa prominente en la base del cuello.</li>
+          <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
+            <span class="font-bold text-amber-900 block mb-0.5 text-xs">📍 Guía de Localización Anatómica Rápida:</span>
+            <ul class="space-y-0.5 text-[11px] md:text-xs text-amber-950 leading-snug">
+              <li>• <strong>C7:</strong> Apófisis espinosa prominente en base del cuello.</li>
               <li>• <strong>D3 (13 V):</strong> Nivel del ángulo superior de la escápula.</li>
               <li>• <strong>D7 (17 V):</strong> Nivel del ángulo inferior de la escápula.</li>
-              <li>• <strong>L4 (25 V):</strong> Línea horizontal que une crestas ilíacas.</li>
+              <li>• <strong>L4 (25 V):</strong> Línea horizontal que une ambas crestas ilíacas.</li>
             </ul>
           </div>
 
@@ -170,7 +192,7 @@
 
       </div>
 
-      <footer class="mt-6 text-center text-xs text-stone-400 border-t border-stone-200 pt-3">
+      <footer class="mt-4 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-2">
         Espacio INYO — Formación Tradicional en Anma, Shiatsu & Medicina Manual Japonesa
       </footer>
 
@@ -180,34 +202,34 @@
     <section class="carilla carilla-2 bg-white p-6 md:p-8 shadow-sm rounded-xl border border-stone-200">
       
       <!-- ENCABEZADO CARILLA 2 -->
-      <header class="border-b-2 border-stone-800 pb-3 mb-5 flex justify-between items-start">
+      <header class="border-b-2 border-stone-800 pb-2 mb-3 flex justify-between items-start">
         <div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-amber-800 block">Espacio INYO — Guía de Estudio Anma & Shiatsu</span>
-          <h1 class="text-2xl md:text-3xl font-bold text-stone-900 font-kanji mt-0.5">Funciones Terapéuticas & Psicoemocionales</h1>
-          <p class="text-xs md:text-sm text-stone-600 mt-0.5">Carilla 2: Indicaciones Clínicas, Esfera Emocional y Diagnóstico Dorsal</p>
+          <span class="text-[10px] font-semibold uppercase tracking-widest text-amber-800 block">Espacio INYO — Guía de Estudio Anma & Shiatsu</span>
+          <h1 class="text-xl md:text-2xl font-bold text-stone-900 font-kanji">Funciones Terapéuticas & Psicoemocionales</h1>
+          <p class="text-xs text-stone-600">Carilla 2: Indicaciones Clínicas, Esfera Emocional y Diagnóstico Dorsal</p>
         </div>
         <div class="text-right">
-          <span class="text-xl md:text-2xl font-bold font-kanji text-stone-400">主治症</span>
-          <span class="block text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Carilla 2 / 2</span>
+          <span class="text-lg md:text-xl font-bold font-kanji text-stone-400">主治症</span>
+          <span class="block text-[9px] text-stone-500 uppercase tracking-wider font-semibold">Carilla 2 / 2</span>
         </div>
       </header>
 
-      <!-- CONTENIDO DE LA CARILLA 2 (FORZADO EN 2 COLUMNAS AMPLIADAS AL IMPRIMIR) -->
-      <div class="grid grid-cols-1 md:grid-cols-12 print-grid gap-6 items-start my-auto">
+      <!-- CONTENIDO DE LA CARILLA 2 (FILA FLEXIBLE GARANTIZADA EN 2 COLUMNAS) -->
+      <div class="flex flex-col md:flex-row flex-print-row gap-6 items-center my-auto">
         
         <!-- IMAGEN LÁMINA 2 -->
-        <div class="md:col-span-5 bg-stone-50 p-3 rounded-lg border border-stone-200 text-center flex flex-col justify-center items-center">
-          <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-img max-h-[620px] w-full object-contain rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x650?text=imagenes/image_17.jpg'">
-          <span class="text-xs text-stone-500 font-medium mt-2 block">Lámina 2: Llamadas de Indicaciones Clínicas y Esfera Emocional</span>
+        <div class="w-full md:w-[44%] col-print-left bg-stone-50 p-2 rounded-lg border border-stone-200 text-center">
+          <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-img max-h-[580px] w-full object-contain rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/450x650?text=imagenes/image_17.jpg'">
+          <span class="text-[10px] text-stone-500 font-medium mt-1.5 block">Lámina 2: Llamadas de Indicaciones Clínicas y Esfera Emocional</span>
         </div>
 
         <!-- FICHERO SINTOMATOLÓGICO -->
-        <div class="md:col-span-7 space-y-3.5 text-xs md:text-sm print-compact-text">
+        <div class="w-full md:w-[53%] col-print-right space-y-3 text-xs md:text-sm print-compact-text">
 
           <!-- BLOQUE TÓRAX Y CORAZÓN -->
-          <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
-            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-2 text-xs md:text-sm">1. Región Torácica / Superior (V11 - V15)</h3>
-            <ul class="space-y-1.5 text-xs md:text-sm text-stone-700 leading-snug">
+          <div class="p-3 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-1.5 text-xs md:text-sm">1. Región Torácica / Superior (V11 - V15)</h3>
+            <ul class="space-y-1 text-[11px] md:text-xs text-stone-700 leading-snug">
               <li><strong>V11 (D1):</strong> Fortalece huesos (nutridos por Riñón), dolor lumbar y de espalda, relaja tendones.</li>
               <li><strong>V12 (D2):</strong> Elimina dolor de espalda alta, trapecios y rigidez de cuello.</li>
               <li><strong>V13 (D3):</strong> Tonifica el órgano Pulmón y la función respiratoria (Po).</li>
@@ -217,9 +239,9 @@
           </div>
 
           <!-- BLOQUE VIAL VISCERAL Y EMOCIONAL -->
-          <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
-            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-2 text-xs md:text-sm">2. Región Dorsal Media / Digestiva (V17 - V21)</h3>
-            <ul class="space-y-1.5 text-xs md:text-sm text-stone-700 leading-snug">
+          <div class="p-3 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-1.5 text-xs md:text-sm">2. Región Dorsal Media / Digestiva (V17 - V21)</h3>
+            <ul class="space-y-1 text-[11px] md:text-xs text-stone-700 leading-snug">
               <li><strong>V17 (D7):</strong> Diafragma y reunión de sangre. Dismenorrea, hemorragias, opresión gástrica, náuseas, somnolencia.</li>
               <li><strong>V18 (D9):</strong> Hígado (Hun). Emociones: ira contenida, irritabilidad, resentimiento, frustración. Bloqueo de drenaje.</li>
               <li><strong>V19 (D10):</strong> Vesícula Biliar. Inseguridad, cobardía, ansiedad, angustia, dificultad en decisiones.</li>
@@ -229,9 +251,9 @@
           </div>
 
           <!-- BLOQUE LUMBAR Y RENAL -->
-          <div class="p-3.5 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
-            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-2 text-xs md:text-sm">3. Región Lumbo-Sacra / Esencia (V22 - V26)</h3>
-            <ul class="space-y-1.5 text-xs md:text-sm text-stone-700 leading-snug">
+          <div class="p-3 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
+            <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-1 mb-1.5 text-xs md:text-sm">3. Región Lumbo-Sacra / Esencia (V22 - V26)</h3>
+            <ul class="space-y-1 text-[11px] md:text-xs text-stone-700 leading-snug">
               <li><strong>V22 (L1):</strong> Triple Recalentador. Acumulación de humedad/agua, abre la vía de los líquidos.</li>
               <li><strong>V23 (L2):</strong> Riñón (Zhi). Vacío de Riñón, agotamiento, tinnitus/sordera, incontinencia, frío genital, dolor de rodillas.</li>
               <li><strong>V24 (L3):</strong> Mar del Qi. Tonifica Riñón, lumbalgia crónica y debilidad de piernas.</li>
@@ -244,7 +266,7 @@
 
       </div>
 
-      <footer class="mt-6 text-center text-xs text-stone-400 border-t border-stone-200 pt-3">
+      <footer class="mt-4 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-2">
         Espacio INYO — Formación Tradicional en Anma, Shiatsu & Medicina Manual Japonesa
       </footer>
 
