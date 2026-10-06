@@ -12,7 +12,7 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-kanji { font-family: 'Noto Serif JP', serif; }
     
-    /* CONFIGURACIÓN DE IMPRESIÓN RIGUROSA (EXACTAMENTE 4 PÁGINAS A4) */
+    /* CONFIGURACIÓN DE IMPRESIÓN RIGUROSA (EXACTAMENTE 4 PÁGINAS NETAS A4) */
     @media print {
       @page {
         size: A4 portrait;
@@ -25,7 +25,7 @@
         padding: 0 !important;
         background-color: white !important;
         color: black !important;
-        font-size: 10.5px !important;
+        font-size: 10px !important;
       }
       .no-print { display: none !important; }
       
@@ -41,9 +41,9 @@
 
       .carilla { 
         width: 100% !important;
-        height: 260mm !important;
-        max-height: 260mm !important;
-        padding: 4mm 6mm !important;
+        height: 215mm !important;
+        max-height: 215mm !important;
+        padding: 2mm 4mm !important;
         box-sizing: border-box !important;
         page-break-after: always !important; 
         break-after: page !important; 
@@ -63,16 +63,16 @@
         break-after: auto !important;
       }
       .print-full-img {
-        max-height: 135mm !important;
+        max-height: 120mm !important;
         width: auto !important;
         max-width: 100% !important;
         object-fit: contain !important;
         margin: auto !important;
       }
       .print-compact-table td, .print-compact-table th {
-        padding: 2px 4px !important;
-        font-size: 9.5px !important;
-        line-height: 1.15 !important;
+        padding: 1.5px 4px !important;
+        font-size: 9px !important;
+        line-height: 1.1 !important;
       }
     }
   </style>
@@ -112,7 +112,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[420px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
+        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[400px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
@@ -135,7 +135,7 @@
       </header>
 
       <div class="space-y-2 my-auto">
-        <div class="bg-stone-900 text-stone-100 p-2.5 rounded-lg shadow-sm">
+        <div class="bg-stone-900 text-stone-100 p-2 rounded-lg shadow-sm">
           <h3 class="font-bold text-amber-400 text-xs md:text-sm font-kanji mb-0.5">Concepto Teórico: Puntos Shu / Yu (背俞穴)</h3>
           <p class="text-[10px] md:text-xs text-stone-300 leading-snug">Los Puntos Shu de la espalda son centros de transporte de energía ubicados en la primera línea del Canal de Vejiga. Cada punto corresponde directamente a un órgano o víscera (Zāng-Fǔ) y refleja su estado funcional tanto para diagnóstico palpatorio como para tratamiento terapéutico.</p>
         </div>
@@ -201,7 +201,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[420px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
+        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[400px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
