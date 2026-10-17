@@ -16,16 +16,15 @@
     @media print {
       @page {
         size: A4 portrait;
-        margin: 0.5cm !important;
+        margin: 6mm !important;
       }
       html, body {
         width: 100% !important;
-        height: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
         background-color: white !important;
         color: black !important;
-        font-size: 10px !important;
+        font-size: 9.5px !important;
       }
       .no-print { display: none !important; }
       
@@ -41,8 +40,8 @@
 
       .carilla { 
         width: 100% !important;
-        height: 215mm !important;
-        max-height: 215mm !important;
+        height: auto !important;
+        max-height: 255mm !important;
         padding: 2mm 4mm !important;
         box-sizing: border-box !important;
         page-break-after: always !important; 
@@ -63,16 +62,16 @@
         break-after: auto !important;
       }
       .print-full-img {
-        max-height: 120mm !important;
+        max-height: 140mm !important;
         width: auto !important;
         max-width: 100% !important;
         object-fit: contain !important;
         margin: auto !important;
       }
       .print-compact-table td, .print-compact-table th {
-        padding: 1.5px 4px !important;
-        font-size: 9px !important;
-        line-height: 1.1 !important;
+        padding: 2px 4px !important;
+        font-size: 8.5px !important;
+        line-height: 1.15 !important;
       }
     }
   </style>
@@ -82,11 +81,17 @@
   <!-- BARRA DE NAVEGACIÓN Y BOTÓN DE IMPRESIÓN (no-print) -->
   <div class="no-print bg-stone-900 text-stone-100 py-3 px-6 sticky top-0 z-50 flex justify-between items-center shadow-md">
     <div class="flex items-center gap-3 text-xs font-medium overflow-x-auto">
-      <a href="index.html" class="text-amber-400 hover:underline">← Manual Teórico</a>
+      <a href="index.html" class="text-amber-400 hover:underline whitespace-nowrap">← Manual Teórico</a>
       <span class="text-stone-600">|</span>
-      <a href="fukushin.html" class="text-stone-300 hover:text-amber-400">📋 Ficha Fukushin</a>
+      <a href="cartografia-emocional.html" class="text-stone-300 hover:text-amber-400 whitespace-nowrap">🌊 Cartografía Dorsal (3 Cun)</a>
       <span class="text-stone-600">|</span>
-      <a href="matriz-clinica.html" class="text-stone-300 hover:text-amber-400">📊 Matriz Clínica</a>
+      <span class="text-amber-400 font-bold whitespace-nowrap">📍 Puntos Shu (1,5 Cun)</span>
+      <span class="text-stone-600">|</span>
+      <a href="aplicacion-abdomen.html" class="text-stone-300 hover:text-amber-400 whitespace-nowrap">📖 8 Manos Anpuku</a>
+      <span class="text-stone-600">|</span>
+      <a href="fukushin.html" class="text-stone-300 hover:text-amber-400 whitespace-nowrap">📋 Ficha Fukushin</a>
+      <span class="text-stone-600">|</span>
+      <a href="matriz-clinica.html" class="text-stone-300 hover:text-amber-400 whitespace-nowrap">📊 Matriz Clínica</a>
     </div>
     <button onclick="window.print()" class="bg-amber-600 hover:bg-amber-700 text-white font-semibold text-xs px-4 py-2 rounded-full shadow transition flex items-center gap-2 whitespace-nowrap">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
@@ -112,7 +117,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[400px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
+        <img src="imagenes/image_16.jpg" alt="Cartografía Puntos Shu Canal de Vejiga" class="print-full-img max-h-[420px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_16.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
@@ -135,9 +140,9 @@
       </header>
 
       <div class="space-y-2 my-auto">
-        <div class="bg-stone-900 text-stone-100 p-2 rounded-lg shadow-sm">
-          <h3 class="font-bold text-amber-400 text-xs md:text-sm font-kanji mb-0.5">Concepto Teórico: Puntos Shu / Yu (背俞穴)</h3>
-          <p class="text-[10px] md:text-xs text-stone-300 leading-snug">Los Puntos Shu de la espalda son centros de transporte de energía ubicados en la primera línea del Canal de Vejiga. Cada punto corresponde directamente a un órgano o víscera (Zāng-Fǔ) y refleja su estado funcional tanto para diagnóstico palpatorio como para tratamiento terapéutico.</p>
+        <div class="bg-stone-900 text-stone-100 p-2.5 rounded-lg shadow-sm">
+          <h3 class="font-bold text-amber-400 text-xs md:text-sm font-kanji mb-0.5">Concepto Teórico: Puntos Shu / Yu (背俞穴) & Conexión al Hara</h3>
+          <p class="text-[10px] md:text-xs text-stone-300 leading-snug">Los Puntos Shu son centros de transporte de energía ubicados en la masa paravertebral (1,5 cun). Coinciden anatómicamente con la cadena ganglionar simpática toracolumbar. Su tratamiento previo mediante presiones sostenidas de 3 a 5 segundos desactiva el tono defensivo reflejo, preparando el diafragma y las vísceras para la posterior penetración del <strong>Anpuku Abdominal</strong>.</p>
         </div>
 
         <div class="border border-stone-200 rounded-lg overflow-hidden shadow-sm">
@@ -150,22 +155,22 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-stone-200 text-[10px]">
-              <tr><td class="p-0.5 border-r font-semibold">D 3 (Dorsal 3)</td><td class="p-0.5 border-r font-bold text-amber-900">13 V</td><td class="p-0.5">Pulmón (Fei Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 4 (Dorsal 4)</td><td class="p-0.5 border-r font-bold text-amber-900">14 V</td><td class="p-0.5">Pericardio / Maestro Corazón (Jue Yin Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 5 (Dorsal 5)</td><td class="p-0.5 border-r font-bold text-amber-900">15 V</td><td class="p-0.5">Corazón (Xin Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 6 (Dorsal 6)</td><td class="p-0.5 border-r font-bold text-amber-900">16 V</td><td class="p-0.5">Du Mai (Du Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 7 (Dorsal 7)</td><td class="p-0.5 border-r font-bold text-amber-900">17 V</td><td class="p-0.5">Diafragma / Reunión de Sangre (Ge Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 9 (Dorsal 9)</td><td class="p-0.5 border-r font-bold text-amber-900">18 V</td><td class="p-0.5">Hígado (Gan Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 10 (Dorsal 10)</td><td class="p-0.5 border-r font-bold text-amber-900">19 V</td><td class="p-0.5">Vesícula Biliar (Dan Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 11 (Dorsal 11)</td><td class="p-0.5 border-r font-bold text-amber-900">20 V</td><td class="p-0.5">Bazo (Pi Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">D 12 (Dorsal 12)</td><td class="p-0.5 border-r font-bold text-amber-900">21 V</td><td class="p-0.5">Estómago (Wei Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">L 1 (Lumbar 1)</td><td class="p-0.5 border-r font-bold text-amber-900">22 V</td><td class="p-0.5">Triple Recalentador (San Jiao Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">L 2 (Lumbar 2)</td><td class="p-0.5 border-r font-bold text-amber-900">23 V</td><td class="p-0.5">Riñón (Shen Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">L 3 (Lumbar 3)</td><td class="p-0.5 border-r font-bold text-amber-900">24 V</td><td class="p-0.5">Mar del Qi (Qi Hai Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">L 4 (Lumbar 4)</td><td class="p-0.5 border-r font-bold text-amber-900">25 V</td><td class="p-0.5">Intestino Grueso (Da Chang Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">L 5 (Lumbar 5)</td><td class="p-0.5 border-r font-bold text-amber-900">26 V</td><td class="p-0.5">Guan Yuan (Guan Yuan Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">S 1 (Sacro 1)</td><td class="p-0.5 border-r font-bold text-amber-900">27 V</td><td class="p-0.5">Intestino Delgado (Xiao Chang Shu)</td></tr>
-              <tr><td class="p-0.5 border-r font-semibold">S 2 (Sacro 2)</td><td class="p-0.5 border-r font-bold text-amber-900">28 V</td><td class="p-0.5">Vejiga (Pang Guang Shu)</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 3 (Dorsal 3)</td><td class="p-0.5 border-r font-bold text-amber-900">13 V</td><td class="p-0.5">Pulmón (Fei Shu) — Asiento del Po (Alma Corpórea)</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 4 (Dorsal 4)</td><td class="p-0.5 border-r font-bold text-amber-900">14 V</td><td class="p-0.5">Pericardio / Maestro Corazón (Jue Yin Shu) — Despeja el tórax</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 5 (Dorsal 5)</td><td class="p-0.5 border-r font-bold text-amber-900">15 V</td><td class="p-0.5">Corazón (Xin Shu) — Asiento del Shen (Mente/Espíritu)</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 6 (Dorsal 6)</td><td class="p-0.5 border-r font-bold text-amber-900">16 V</td><td class="p-0.5">Du Mai (Du Shu) — Mobiliza el Qi torácico central</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 7 (Dorsal 7)</td><td class="p-0.5 border-r font-bold text-amber-900">17 V</td><td class="p-0.5">Diafragma / Hui de Sangre (Ge Shu) — <em>Punto Bisagra al Hara</em></td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 9 (Dorsal 9)</td><td class="p-0.5 border-r font-bold text-amber-900">18 V</td><td class="p-0.5">Hígado (Gan Shu) — Asiento del Hun (Alma Etérea)</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 10 (Dorsal 10)</td><td class="p-0.5 border-r font-bold text-amber-900">19 V</td><td class="p-0.5">Vesícula Biliar (Dan Shu) — Determinación y vías biliares</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 11 (Dorsal 11)</td><td class="p-0.5 border-r font-bold text-amber-900">20 V</td><td class="p-0.5">Bazo (Pi Shu) — Asiento del Yi (Intelecto/Digestión)</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">D 12 (Dorsal 12)</td><td class="p-0.5 border-r font-bold text-amber-900">21 V</td><td class="p-0.5">Estómago (Wei Shu) — Charnela toracolumbar y píloro</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">L 1 (Lumbar 1)</td><td class="p-0.5 border-r font-bold text-amber-900">22 V</td><td class="p-0.5">Triple Recalentador (San Jiao Shu) — Vía de líquidos y edema</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">L 2 (Lumbar 2)</td><td class="p-0.5 border-r font-bold text-amber-900">23 V</td><td class="p-0.5">Riñón (Shen Shu) — Asiento de la Voluntad (Zhi) y Esencia</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">L 3 (Lumbar 3)</td><td class="p-0.5 border-r font-bold text-amber-900">24 V</td><td class="p-0.5">Mar del Qi (Qi Hai Shu) — Vértice lordótico y centro Tanden</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">L 4 (Lumbar 4)</td><td class="p-0.5 border-r font-bold text-amber-900">25 V</td><td class="p-0.5">Intestino Grueso (Da Chang Shu) — Altura de crestas ilíacas</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">L 5 (Lumbar 5)</td><td class="p-0.5 border-r font-bold text-amber-900">26 V</td><td class="p-0.5">Guan Yuan (Guan Yuan Shu) — Barrera de la Esencia pélvica</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">S 1 (Sacro 1)</td><td class="p-0.5 border-r font-bold text-amber-900">27 V</td><td class="p-0.5">Intestino Delgado (Xiao Chang Shu) — Separación de fluidos</td></tr>
+              <tr><td class="p-0.5 border-r font-semibold">S 2 (Sacro 2)</td><td class="p-0.5 border-r font-bold text-amber-900">28 V</td><td class="p-0.5">Vejiga (Pang Guang Shu) — Inervación parasimpática sacra</td></tr>
             </tbody>
           </table>
         </div>
@@ -173,10 +178,10 @@
         <div class="p-2 bg-amber-50 rounded-lg border border-amber-200 shadow-sm">
           <span class="font-bold text-amber-900 block mb-0.5 text-xs">📍 Guía de Localización Anatómica y Puntos Referenciales:</span>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-0.5 text-[10px] text-amber-950">
-            <li>• <strong>C7 (Cervical 7):</strong> Apófisis espinosa prominente al flexionar cuello.</li>
-            <li>• <strong>D3 (13 V):</strong> Nivel del ángulo superior / espina de escápula.</li>
-            <li>• <strong>D7 (17 V):</strong> Nivel del ángulo inferior de la escápula.</li>
-            <li>• <strong>L4 (25 V):</strong> Línea horizontal que une crestas ilíacas superiores.</li>
+            <li>• <strong>C7 (Cervical 7):</strong> Apófisis espinosa prominente al flectar cuello. Base dorsal.</li>
+            <li>• <strong>D3 (13 V):</strong> Línea que une la espina y ángulo superior de las escápulas.</li>
+            <li>• <strong>D7 (17 V):</strong> Línea que une los ángulos inferiores escapulares (Ge Shu).</li>
+            <li>• <strong>L4 (25 V):</strong> Línea horizontal de crestas ilíacas superiores (Línea de Jacoby).</li>
           </ul>
         </div>
       </div>
@@ -201,7 +206,7 @@
       </header>
 
       <div class="flex-1 flex items-center justify-center bg-stone-50 p-2 rounded-xl border border-stone-200 my-auto">
-        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[400px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
+        <img src="imagenes/image_17.jpg" alt="Indicaciones Clínicas Puntos Shu" class="print-full-img max-h-[420px] w-auto object-contain mx-auto rounded" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x700?text=imagenes/image_17.jpg'">
       </div>
 
       <footer class="mt-2 text-center text-[10px] text-stone-400 border-t border-stone-200 pt-1.5">
@@ -228,36 +233,36 @@
         <!-- BLOQUE 1 -->
         <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
           <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-0.5 mb-1 text-xs">1. Región Torácica Alta (V11 - V15) — Sistema Respiratorio & Shen</h3>
-          <ul class="space-y-0.5 text-[10px] text-stone-700 leading-tight">
-            <li>• <strong>V11 (Debajo de D1):</strong> Fortalece huesos (nutridos por Riñón), trata dolor de espalda alta y lumbar. Relaja tendones.</li>
-            <li>• <strong>V12 (Debajo de D2):</strong> Elimina dolor de espalda alta, trapecios y rigidez de cuello. Punto clave para Viento.</li>
-            <li>• <strong>V13 (Debajo de D3 - Fei Shu):</strong> Tonifica refleja en órgano Pulmón. Asentamiento del alma corpórea (Po). Asma y tos.</li>
-            <li>• <strong>V14 (Debajo de D4 - Jue Yin Shu):</strong> Tonifica refleja en Pericardio. Despeja el tórax y alivia opresión pectoral.</li>
-            <li>• <strong>V15 (Debajo de D5 - Xin Shu):</strong> Asentamiento del Corazón (Shen). Trata angustia, tristeza, concentración e insomnio.</li>
+          <ul class="space-y-0.5 text-[9.5px] text-stone-700 leading-tight">
+            <li>• <strong>V11 (Debajo de D1):</strong> Fortalece huesos (nutridos por Riñón), trata dolor escapular alto y contracturas por sobreuso.</li>
+            <li>• <strong>V12 (Debajo de D2):</strong> Elimina dolor de nuca, trapecios y rigidez de hombros. Punto barrera contra factores patógenos de Viento.</li>
+            <li>• <strong>V13 (Debajo de D3 - Fei Shu):</strong> Tonifica la función pulmonar. Asentamiento del alma corpórea (Po). Trata tristeza profunda, asma y disnea.</li>
+            <li>• <strong>V14 (Debajo de D4 - Jue Yin Shu):</strong> Estimula Pericardio. Despeja el centro del pecho, alivia opresión precordial y ansiedad somática.</li>
+            <li>• <strong>V15 (Debajo de D5 - Xin Shu):</strong> Asentamiento del Corazón (Shen). Calma la angustia, taquicardia por estrés, insomnio y desconcentración.</li>
           </ul>
         </div>
 
         <!-- BLOQUE 2 -->
         <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
           <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-0.5 mb-1 text-xs">2. Región Dorsal Media (V17 - V21) — Digestivo & Emociones (Hun / Yi)</h3>
-          <ul class="space-y-0.5 text-[10px] text-stone-700 leading-tight">
-            <li>• <strong>V17 (Debajo de D7 - Ge Shu):</strong> Asentamiento de Diafragma y Sangre. Dismenorrea, opresión gástrica, somnolencia.</li>
-            <li>• <strong>V18 (Debajo de D9 - Gan Shu):</strong> Asentamiento de Hígado (Hun). Trata ira contenida, irritabilidad, frustración y resentimiento.</li>
-            <li>• <strong>V19 (Debajo de D10 - Dan Shu):</strong> Asentamiento de Vesícula Biliar. Cobardía, inseguridad, angustia y tomar decisiones.</li>
-            <li>• <strong>V20 (Debajo de D11 - Pi Shu):</strong> Asentamiento de Bazo (Yi). Obsesión, rumiación mental, digestión lenta y cansancio.</li>
-            <li>• <strong>V21 (Debajo de D12 - Wei Shu):</strong> Asentamiento de Estómago. Regulariza E, elimina dolor gástrico, vómitos y acumulación.</li>
+          <ul class="space-y-0.5 text-[9.5px] text-stone-700 leading-tight">
+            <li>• <strong>V17 (Debajo de D7 - Ge Shu):</strong> Diafragma y Sangre. <em>Punto clave previo al Anpuku</em>: libera el centro frénico y quita el nudo epigástrico.</li>
+            <li>• <strong>V18 (Debajo de D9 - Gan Shu):</strong> Hígado (Hun). Drena ira reprimida, irritabilidad, frustración. Reflejo del flanco izquierdo (Shakuju no Hara).</li>
+            <li>• <strong>V19 (Debajo de D10 - Dan Shu):</strong> Vesícula Biliar. Resuelve inseguridad, timidez patológica, angustia para decidir y tensión intercostal.</li>
+            <li>• <strong>V20 (Debajo de D11 - Pi Shu):</strong> Bazo (Yi). Disuelve la obsesión y rumiación mental. Activa la digestión lenta y alivia pesadez epigástrica.</li>
+            <li>• <strong>V21 (Debajo de D12 - Wei Shu):</strong> Estómago. Regulariza el jiao medio, náuseas, acidez y sensación de plenitud gástrica (Shokuhi no Hara).</li>
           </ul>
         </div>
 
         <!-- BLOQUE 3 -->
         <div class="p-2 bg-stone-50 rounded-lg border border-stone-200 shadow-sm">
           <h3 class="font-bold text-stone-900 font-kanji border-b border-stone-300 pb-0.5 mb-1 text-xs">3. Región Lumbo-Sacra (V22 - V26) — Esencia (Jing) & Voluntad (Zhi)</h3>
-          <ul class="space-y-0.5 text-[10px] text-stone-700 leading-tight">
-            <li>• <strong>V22 (Debajo de L1 - San Jiao Shu):</strong> Triple Recalentador. Acumulación en órganos y espalda, abre vía de líquidos.</li>
-            <li>• <strong>V23 (Debajo de L2 - Shen Shu):</strong> Asentamiento de Riñón (Zhi). Vacío de Riñón, agotamiento, tinnitus, incontinencia, dolor rodillas.</li>
-            <li>• <strong>V24 (Debajo de L3 - Qi Hai Shu):</strong> Asentamiento del Mar del Qi. Tonifica Riñón, lumbalgia crónica y piernas débiles.</li>
-            <li>• <strong>V25 (Debajo de L4 - Da Chang Shu):</strong> Asentamiento de Intestino Grueso (altura crestas ilíacas). Trastornos de IG y lumbalgia.</li>
-            <li>• <strong>V26 (Debajo de L5 - Guan Yuan Shu):</strong> Punto de la Esencia (Jing). Tonifica R, lumbalgia con frío, problemas de útero/quistes.</li>
+          <ul class="space-y-0.5 text-[9.5px] text-stone-700 leading-tight">
+            <li>• <strong>V22 (Debajo de L1 - San Jiao Shu):</strong> Triple Recalentador. Drena retención de líquidos, pesadez lumbar y abre las vías del jiao inferior.</li>
+            <li>• <strong>V23 (Debajo de L2 - Shen Shu):</strong> Riñón (Zhi). Tonifica la voluntad, combate agotamiento vital crónico, frío lumbar y debilidad articular.</li>
+            <li>• <strong>V24 (Debajo de L3 - Qi Hai Shu):</strong> Mar del Qi. Fortalece la raíz lumbar profunda y el centro vital posterior del Tanden.</li>
+            <li>• <strong>V25 (Debajo de L4 - Da Chang Shu):</strong> Intestino Grueso. Regula la evacuación, desinflama colon y trata lumbociatalgias mecánicas.</li>
+            <li>• <strong>V26 (Debajo de L5 - Guan Yuan Shu):</strong> Esencia. Tonifica Jing de Riñón, frío pelviano, estasis ginecológica y rigidez lumbosacra (Kekkai no Hara).</li>
           </ul>
         </div>
 
@@ -272,17 +277,25 @@
 
   <!-- FOOTER WEB ESPACIO INYO (no-print) -->
   <footer class="no-print bg-stone-900 text-stone-400 py-8 border-t border-stone-800 text-xs mt-12">
-    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
       <div class="text-center md:text-left">
         <span class="text-amber-500 font-bold font-kanji text-sm block">Espacio INYO</span>
-        <span>Ecosistema de actividades: HIIT + Calistenia, Zen Stretching, Artes Marciales Kiryū Dōjō, Yoga, Qigong (Profe Alejandra Paz) y Chamanismo (Ignacio Digas).</span>
+        <span class="text-stone-400 block text-[11px] mt-1">Ecosistema de actividades: HIIT + Calistenia, Zen Stretching, Artes Marciales Kiryū Dōjō, Yoga, Qigong y Chamanismo.</span>
       </div>
-      <div class="flex gap-4">
+      <div class="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2 text-[11px]">
         <a href="index.html" class="text-amber-400 hover:underline font-semibold">Manual Teórico</a>
+        <span class="text-stone-700">•</span>
+        <a href="cartografia-emocional.html" class="text-amber-400 hover:underline font-semibold">Cartografía Dorsal</a>
+        <span class="text-stone-700">•</span>
+        <a href="aplicacion-abdomen.html" class="text-amber-400 hover:underline font-semibold">8 Manos Anpuku</a>
         <span class="text-stone-700">•</span>
         <a href="fukushin.html" class="text-amber-400 hover:underline font-semibold">Fukushin</a>
         <span class="text-stone-700">•</span>
         <a href="matriz-clinica.html" class="text-amber-400 hover:underline font-semibold">Matriz Clínica</a>
+        <span class="text-stone-700">•</span>
+        <a href="../qigong/index.html" class="text-stone-300 hover:text-amber-400">Qigong (Alejandra Paz)</a>
+        <span class="text-stone-700">•</span>
+        <a href="../chamanismo/index.html" class="text-stone-300 hover:text-amber-400">Chamanismo (Ignacio Digas)</a>
       </div>
     </div>
   </footer>
